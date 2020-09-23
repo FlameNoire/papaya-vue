@@ -1,0 +1,12 @@
+<svg class="trgl-5" width="1046" height="580" viewBox="0 0 1046 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f)">
+<polygon class="st0" points="749.5,80.4 89.6,480.2 971,489.2 " fill="#98BC24"/>
+</g>
+<defs>
+<filter id="filter0_f" x="5.67436e-05" y="-68.0001" width="1046" height="580" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur"/>
+</filter>
+</defs>
+</svg>

@@ -1,40 +1,621 @@
 <template>
   <div class="page page_blog">
     <div class="page_header">
-      <h1 class="page_title">Blog</h1>
-      <p class="page_title_caption">Here you can find the latest news and events in the IT sector</p>
+      <h1 class="page_title">{{ $t('text6') }}</h1>
+      <p class="page_title_caption">{{ $t('text7') }}</p>
     </div>
-    <div class="page_content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel perferendis maiores optio, cum suscipit dolore repellendus illo, culpa placeat ullam, animi minus. In nisi qui fuga minima aspernatur laudantium quibusdam. Blanditiis facilis eaque corporis error dolores magni deserunt aperiam esse, exercitationem consectetur voluptatibus nemo aliquid dignissimos veniam obcaecati itaque officiis deleniti repellendus sequi, accusantium maxime nesciunt iure sapiente delectus! Sit, nam! Quos, nemo totam. Dignissimos, aut ipsa perspiciatis accusamus sequi cupiditate distinctio minus vel iure laborum qui eius aspernatur dolorem inventore tenetur. Fugiat labore repudiandae deserunt inventore saepe minima quisquam harum quasi esse beatae eaque, suscipit similique voluptate exercitationem consequuntur est eveniet tenetur itaque neque error soluta ipsa? Odio aperiam illum quos esse impedit aliquam, ipsum minus tenetur? Saepe est aliquam excepturi vero exercitationem consequatur aliquid adipisci iusto culpa esse, dolorem itaque quo? Veniam, quisquam incidunt. Incidunt veritatis blanditiis rerum nisi eum dolores beatae magni, necessitatibus sapiente architecto animi quisquam possimus officia sequi minima quasi totam asperiores accusantium sint vel amet! Numquam vitae provident iste autem perferendis quis illo nemo cumque odio in, illum quisquam nulla unde nostrum officia eos nihil repellendus temporibus obcaecati iure? Officia fugiat laboriosam ipsum, blanditiis at excepturi sunt animi, ullam architecto illum iusto ipsa praesentium necessitatibus esse, corporis fugit doloremque! Repellat iusto quaerat est exercitationem quam non distinctio quas fugiat ab facilis ipsum tempore dolorum corrupti, unde quod impedit hic earum nisi. Consequatur quisquam nobis expedita rem reiciendis porro molestias vitae dignissimos id beatae, delectus enim doloremque eaque soluta minima voluptate excepturi impedit ipsam, magnam omnis amet dolor officiis? Error velit aut voluptatem sed totam ullam vero voluptatibus, dolor ipsam ut quae earum facere explicabo distinctio repellat recusandae doloribus quam illum deserunt libero ducimus nemo esse dolorem reiciendis! Quis officiis, facilis provident ratione deleniti, mollitia, iste voluptate consequuntur id iure quibusdam numquam saepe! Dignissimos, pariatur perspiciatis rem facilis tempore sequi hic deserunt reprehenderit doloribus veniam maiores facere commodi praesentium, non vero cum error alias totam reiciendis doloremque nesciunt ab possimus? Accusamus, autem vel voluptatum ab enim corrupti distinctio impedit, dolorem itaque nemo sequi suscipit aperiam assumenda voluptates eveniet. Tempore, voluptates repellendus. Dolore iusto sapiente quibusdam perferendis ipsam in delectus corporis non error, saepe modi obcaecati sed itaque aliquam id sit atque omnis eum aperiam, laudantium veniam? Nihil praesentium nostrum optio sapiente non expedita, maxime quod rerum aut fugiat nobis architecto dolore odio minus, assumenda earum, tempore aliquam? Recusandae, corrupti doloremque. Ea corporis voluptatum quia at nihil eum minus repellat fugit recusandae voluptates. Quas voluptatem iusto, laborum nesciunt facere impedit, dolores eligendi quaerat magni dolorum doloremque modi est. Provident magni nesciunt nemo, optio repudiandae saepe. Molestiae quidem, qui excepturi dolor earum a corporis! Magnam amet expedita perferendis officia beatae, aliquam placeat illum cupiditate. Labore non voluptatem, veritatis soluta deleniti porro aliquid? Ducimus tenetur obcaecati dicta, velit accusantium iure ab perferendis, nobis eaque ea nam vel asperiores est modi unde aliquam optio illum sequi error repudiandae placeat delectus. Dolorum, illo dignissimos culpa autem magni numquam hic suscipit asperiores reiciendis facere excepturi, velit deleniti libero placeat id voluptatem unde adipisci rem nulla. Deleniti illum dolores sit. Nobis libero odio eveniet rem harum nesciunt similique a porro aliquid consectetur? Cupiditate dolorum omnis veritatis obcaecati inventore quam odit sed perferendis dolorem exercitationem dignissimos quis nulla, aspernatur illo assumenda! Asperiores suscipit error eveniet officia. Dicta id officia, possimus nisi quos illo perspiciatis earum, excepturi quas quia neque nostrum, dolore a voluptatum. Accusamus eaque tempora animi voluptates suscipit sed fugit hic illum vel alias est harum velit atque nulla, nostrum nesciunt, laboriosam itaque! Velit vitae labore amet laudantium aspernatur consequuntur dolorum voluptates impedit quidem obcaecati incidunt, nesciunt voluptatem repellat assumenda eos temporibus cum nulla sint cumque eveniet. Sunt commodi debitis eius inventore id! Eaque voluptas rerum a quo illum modi perspiciatis blanditiis dicta culpa dolorum quis ratione dignissimos alias eum non doloremque, provident, neque atque ullam aspernatur harum suscipit perferendis distinctio officiis. Omnis iusto perspiciatis hic, quae optio voluptas, cupiditate sit similique vitae dignissimos magnam! Cupiditate culpa, doloremque dicta qui molestiae perferendis voluptatem, fugit animi ipsum debitis neque recusandae esse adipisci? Neque ratione sunt voluptatum molestiae impedit fuga cumque culpa? Quisquam, mollitia neque voluptatum quaerat veritatis nostrum velit accusamus iure eveniet fuga, vero et? Vitae commodi dolorem autem aspernatur, accusantium accusamus eligendi porro unde doloribus deleniti earum et fugiat ipsam adipisci, voluptatem est voluptate laboriosam. Amet ex qui consequuntur explicabo ipsam deleniti accusamus rerum ut incidunt maxime, voluptates veritatis odio excepturi consectetur aperiam molestias deserunt dolor! Fuga alias praesentium, fugiat officiis quos laudantium voluptas iusto nemo facere illo nisi velit illum maiores placeat porro quia autem esse quam laborum possimus! Dolorem repellat laborum ex consectetur ratione, excepturi architecto harum, deleniti enim eveniet tempore itaque, odit ipsam possimus! Eveniet, laborum sequi consequuntur libero ducimus dignissimos quia, odio distinctio vero, necessitatibus magnam dolorum explicabo. Vitae at repudiandae, inventore incidunt commodi sequi deserunt dolorum? Animi, adipisci quasi aliquam veritatis, sint porro sapiente voluptatibus cumque recusandae nulla odit excepturi minus in a illum! A error beatae vel ducimus sunt, animi voluptatem, accusantium placeat, consectetur eius sequi odit excepturi ab atque odio libero dolor fugit. Deleniti consequuntur culpa eius quasi blanditiis nostrum at? Possimus voluptates sapiente cumque, provident natus qui ea quos, vel sunt quasi dolor distinctio excepturi explicabo earum cupiditate? Laboriosam molestiae, assumenda minus nemo ea placeat asperiores, blanditiis illo commodi dolor deleniti pariatur perspiciatis inventore voluptatum tenetur suscipit, magni similique quam! Molestiae, sint adipisci. Quaerat illo labore asperiores magnam culpa ut, optio eligendi suscipit ad sit quos quod nemo officiis commodi repellat! Nam nisi, eveniet reprehenderit aliquam necessitatibus minus eius nihil perspiciatis voluptates aut, doloribus blanditiis ullam nulla distinctio consequatur? Unde placeat aspernatur voluptates aperiam laudantium fugit nesciunt, sequi, perferendis eaque tempore alias facere quo doloremque optio possimus libero dignissimos. Provident debitis distinctio animi. Esse, inventore qui. Natus corporis ipsum eligendi odio eveniet explicabo odit blanditiis aspernatur voluptate impedit fugit doloremque autem voluptatibus obcaecati ipsa provident eius esse maxime, illo iure maiores laboriosam? Itaque magni reiciendis nemo soluta, sint, in eos beatae eum, iure hic doloribus provident quae qui perferendis! Voluptatibus harum, molestias mollitia beatae voluptates dolorum neque, minus unde consequuntur maxime doloremque ea, veniam odit possimus numquam sint dolorem nisi eveniet ut ipsa. Illum delectus iusto minus earum illo incidunt quo! Culpa consectetur voluptatem totam similique, suscipit dolorem quibusdam reiciendis ratione nisi perferendis unde, neque quia rem! Dolorum facilis ratione nobis dolor id non tenetur laudantium dicta, earum officiis doloribus debitis. Harum doloribus vero illum voluptates, ullam rem autem accusamus repellendus sed officia in obcaecati eveniet magni asperiores distinctio adipisci culpa ipsum iusto labore est hic cumque? Numquam, minima porro placeat et facilis corrupti non laborum dolorem illum voluptas? Consectetur corrupti eligendi, reiciendis asperiores at laudantium, perferendis placeat, quisquam consequatur exercitationem aperiam adipisci dolorem ipsam? Unde autem tempora alias adipisci cumque reprehenderit! Iste quas possimus aspernatur aliquam ratione est ducimus consectetur enim quibusdam. Quo inventore suscipit nam accusamus? Earum sequi iure, doloremque ipsum est provident quibusdam minima alias expedita ullam autem tenetur labore non, nihil veritatis nulla, tempore itaque! Deleniti temporibus explicabo natus possimus! Quod sunt eligendi nisi esse. Unde repellat nemo eos eius veritatis, vero, dolorum quo laudantium omnis vitae iure deleniti, est ex aliquam corporis. Hic voluptatibus adipisci dolorem totam magnam error asperiores dolor, eos mollitia ratione, tempora ipsum, id laborum eaque. Libero obcaecati harum distinctio vel molestiae similique, maiores quisquam. Hic et quam cum reprehenderit soluta inventore ipsam molestias error autem magnam dolorum eum ducimus officia possimus mollitia porro illum recusandae architecto, accusantium nihil non atque labore neque ullam! Distinctio vitae tempora recusandae magni numquam quo quas. Explicabo non voluptatibus nam tempore ducimus fugiat necessitatibus odio ad maxime, omnis eum quam atque quos assumenda facilis! Maiores voluptatem tenetur est nam ad odit rem quos qui repudiandae quidem minus numquam pariatur quaerat illo, labore libero voluptas, veritatis animi laborum saepe optio assumenda sequi. Laudantium, adipisci minus accusamus ex doloremque dolorem eos, aperiam minima vel eveniet, ab libero quas architecto eius temporibus optio maiores dolores? Placeat repellendus laborum mollitia ullam non suscipit culpa, vero doloribus accusamus officia eligendi quasi. Non accusamus quo eveniet beatae aut esse eum doloribus ab porro velit ipsa, eaque consectetur est eius atque optio, fugit possimus culpa repudiandae! Dicta necessitatibus suscipit doloremque voluptatibus atque harum iusto natus saepe quo quae ut, hic aut fugiat doloribus animi mollitia incidunt aspernatur repudiandae nam corporis est ipsa deleniti. Laborum quis illo commodi officiis nobis harum voluptate architecto repudiandae, laudantium voluptatum dolore iusto ullam illum cum nihil ducimus suscipit aliquam adipisci minus qui! Fugit et cum eaque molestiae, dicta quaerat eligendi! Illo ab quas iure laboriosam velit at tenetur vero expedita officiis odio, voluptatibus dolores doloribus praesentium quaerat distinctio unde earum! Molestiae temporibus ipsa aperiam. Ratione facere a quasi. Iusto eos ad quaerat aspernatur facere similique aperiam molestias ex ratione rerum reiciendis laudantium, quos rem, officiis obcaecati quod neque totam accusantium optio? Itaque tempora quam maiores eveniet, sint accusantium quidem repudiandae minima officia earum, alias ea asperiores voluptas quibusdam. Ut saepe quos mollitia modi odio. Hic corrupti corporis incidunt quis facere, error impedit natus quisquam magni. Rerum nulla quae ab, ducimus optio deserunt temporibus eveniet. Eius dolores eveniet consequatur quo consequuntur consectetur aut, sint deleniti asperiores, facilis ipsam perspiciatis saepe voluptatem totam? Voluptate vitae repellat corrupti qui. Alias, voluptatibus debitis consequuntur, exercitationem quidem in laudantium dicta, culpa autem nihil qui minima quae aliquid deserunt! In saepe repudiandae commodi laboriosam perspiciatis sed, inventore culpa omnis excepturi a eligendi asperiores voluptatibus doloribus non at aut, cumque quasi. Impedit blanditiis nostrum, aliquid quo inventore odit libero quae asperiores perferendis quidem magni a quod fuga saepe veritatis reprehenderit illo, aut ipsa? Quo ea doloribus totam impedit soluta ad, minus laboriosam. Sapiente doloremque ipsam voluptates optio nostrum minima quia totam! Impedit, quasi? Quod similique sed odio sapiente eligendi possimus laudantium repellendus quam voluptas in maiores officia doloremque deserunt ratione excepturi nobis voluptatem, accusamus facere quis dolorum repudiandae praesentium eaque. Dolores nostrum iste non aliquam nulla quo mollitia, laudantium consectetur officiis? Nostrum repellat quaerat omnis velit dolorem. Maxime incidunt ab, libero adipisci eveniet perspiciatis a nemo dolorem. Velit dolor porro illum perferendis. Aliquam a molestiae tenetur deleniti adipisci cum assumenda. Voluptatum voluptatem odit facere ipsam quaerat, dicta, unde eos earum similique nesciunt perspiciatis, saepe doloremque laudantium officiis ipsa possimus deserunt magni maxime totam mollitia officia voluptatibus illum. Deserunt nisi vero laboriosam. Nulla reiciendis architecto aliquam voluptatem autem minus sit eius! Minima obcaecati architecto accusantium natus ducimus, incidunt dolore suscipit ipsam dicta nulla hic consequuntur omnis minus expedita placeat ullam ipsa itaque possimus, nisi optio reiciendis nam? Voluptatem saepe enim molestiae iusto deserunt laborum pariatur ut, odit eius cupiditate tempore sit nostrum consequuntur ea perspiciatis repellendus doloribus impedit nisi quis nobis natus consequatur. Sapiente, odio dolore tenetur quisquam optio eius dolorem rem deserunt exercitationem illum numquam nesciunt ut id nam perferendis fugiat odit possimus hic rerum officiis? Laudantium quasi sequi atque impedit saepe asperiores dolores ducimus culpa. Dolor aliquid ratione quod accusamus cumque id accusantium blanditiis! Molestias facere iste tempora suscipit recusandae porro modi iusto excepturi at numquam qui, corporis quis quidem nisi voluptatibus quos velit aspernatur quaerat unde necessitatibus voluptas, nulla mollitia enim nihil? Libero tenetur laboriosam officia sunt ut commodi eius aut repellat consectetur illo! Dolor, possimus dolorem! Quidem dolore quas ea neque voluptatem officia nulla sunt odit! Eius ducimus amet dicta nobis. Perferendis quia aliquid dolore illum accusamus. Aliquam voluptatum adipisci optio expedita repudiandae maiores, modi sunt quasi consectetur ipsum tenetur, eligendi repellendus labore neque et at nulla eveniet. Maiores, quod voluptate possimus nostrum dicta nobis adipisci consequatur quam provident aspernatur molestias alias ad earum ducimus perferendis exercitationem? Quos, id repellendus facilis ad, aut ea adipisci deleniti quo eos nostrum voluptatum maxime! Animi aliquam, nam necessitatibus eos veritatis consequuntur eligendi ab aliquid porro harum ad saepe natus odit illo quia dicta dolores dolorum debitis consectetur provident fugit! Neque, necessitatibus aperiam aliquid perferendis, ad ratione iste doloribus recusandae et quo suscipit amet sint harum sunt! Veritatis repellat in, deserunt, nisi itaque similique accusantium modi quas inventore sunt reprehenderit doloribus vero maiores. Temporibus, quisquam officia esse molestias vitae, quos sunt aliquid magni voluptatibus minima dolores natus illum consequuntur quis.</div>
+    <div class="page_content">
+      <div class="posts_list" ref="blog">
+        <!-- <router-link :to="`/blog/:${post.id}`" class="post_preview" v-for="post in postsList" v-bind:key="post.id" @mouseenter.native="activeToggler($event)" @mouseleave.native="activeToggler($event)"> -->
+        <router-link :to="{ name: 'BlogPost', params: { postId: post.id, postTitle: post.title }}" class="post_preview" v-for="post in postsList" v-bind:key="post.id" @mouseenter.native="activeToggler($event)" @mouseleave.native="activeToggler($event)">
+          <div class="post_img"><img :src="post.image" alt=" "></div>
+          <div class="post_desc">
+            <h2 class="post_title">{{post.title}}</h2>
+            <div class="post_date">{{post.date}}</div>
+            <div class="post_caption">{{post.caption}}</div>
+          </div>
+        </router-link>
+      </div>
+      <div class="page_bottom">
+        <a href="#" class="buttons btn_more" @click.prevent="loadPosts">
+          <i class="icon">
+            <img src="@/assets/img/eye-white.svg" alt=" ">
+            <img src="@/assets/img/eye.svg" alt=" ">
+          </i>
+          <span>{{ $t('buttons.btn9') }}</span>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
-<style lang="scss">
-.page {
-  padding: 1.5rem 25rem 11.5rem;
+<script>
+import anime from 'animejs/lib/anime.es.js'
+import { isMobile, isTablet } from "mobile-device-detect"
+
+export default {
+  data: () => {
+    return {
+      posts: []
+    }
+  },
+  computed: {
+    lang() {
+      return this.$i18n.locale
+    },
+    isMobDevice() {
+      return isMobile || isTablet ? true : false
+    },
+    postsList() {
+      return this.posts
+    },
+    // reInit() {
+    //   let currIndex = this.$refs.slick.currentSlide()
+    //   this.$refs.slick.destroy()
+    //   this.$nextTick(() => {
+    //     this.$refs.slick.create()
+    //     this.$refs.slick.goTo(currIndex, true)
+    //   })
+    // },
+  },
+  methods: {
+    activeToggler: function(e) {
+      e.target.classList.toggle('active')
+    },
+    loadPosts: function() {
+      console.log(this)
+      
+      const postsEN = [
+        {
+          id: 'post_1',
+          date: 'September 23, 2020',
+          image: require('@/assets/img/post-img-3.png'),
+          title: 'Tesla claims it can drive battery costs down even lower ...',
+          caption: 'Amid a packed afternoon of announcements from Tesla around innovations the company is pursuing to slash the cost of electric vehicles and energy storage ...',
+        },
+        {
+          id: 'post_2',
+          date: 'September 22, 2020',
+          image: require('@/assets/img/post-img-1.png'),
+          title: 'Pinterest breaks daily download record due to ...',
+          caption: 'The excitement around the ability to customize your iPhone home screen following the release of iOS 14 has been paying off for Pinterest ...',
+        },
+        {
+          id: 'post_3',
+          date: 'September 16, 2020',
+          image: require('@/assets/img/post-img-2.png'),
+          title: 'Four perspectives on Apple’s new service bundle',
+          caption: 'Apple’s hardware event yesterday wasn’t particularly eventful for its most popular devices, bringing only iterative changes to Apple  Watch and ...',
+        },
+      ]
+      const postsRU = [
+        {
+          id: 'post_1',
+          date: '23 сентября 2020 г.',
+          image: require('@/assets/img/post-img-3.png'),
+          title: 'Tesla утверждает, что может снизить стоимость ...',
+          caption: 'После полудня, когда Tesla объявила об инновациях, которые компания стремится сократить стоимость электромобилей и накопителей энергии ...',
+        },
+        {
+          id: 'post_2',
+          date: '21 сентября 2020 г.',
+          image: require('@/assets/img/post-img-1.png'),
+          title: 'Pinterest побил ежедневный рекорд загрузок из-за ...',
+          caption: 'Волнение вокруг возможности настраивать домашний экран iPhone после выпуска iOS 14 окупилось для Pinterest ...',
+        },
+        {
+          id: 'post_3',
+          date: '16 сентября 2020 г.',
+          image: require('@/assets/img/post-img-2.png'),
+          title: 'Четыре точки зрения на новый пакет услуг Apple',
+          caption: 'Вчерашнее мероприятие, посвященное аппаратному обеспечению Apple, не было особенно насыщенным для его самых популярных устройств: в Apple Watch и ...',
+        },
+      ]
+
+      switch (this.lang) {
+        case 'en':
+          this.posts.push(...postsEN)
+        break
+
+        case 'ru':
+          this.posts.push(...postsRU)
+        break
+      }
+    }
+  },
+  watch: {
+    lang: function() {
+      const postsEN = [
+        {
+          id: 'post_1',
+          date: 'September 23, 2020',
+          image: require('@/assets/img/post-img-3.png'),
+          title: 'Tesla claims it can drive battery costs down even lower ...',
+          caption: 'Amid a packed afternoon of announcements from Tesla around innovations the company is pursuing to slash the cost of electric vehicles and energy storage ...',
+        },
+        {
+          id: 'post_2',
+          date: 'September 22, 2020',
+          image: require('@/assets/img/post-img-1.png'),
+          title: 'Pinterest breaks daily download record due to ...',
+          caption: 'The excitement around the ability to customize your iPhone home screen following the release of iOS 14 has been paying off for Pinterest ...',
+        },
+        {
+          id: 'post_3',
+          date: 'September 16, 2020',
+          image: require('@/assets/img/post-img-2.png'),
+          title: 'Four perspectives on Apple’s new service bundle',
+          caption: 'Apple’s hardware event yesterday wasn’t particularly eventful for its most popular devices, bringing only iterative changes to Apple  Watch and ...',
+        },
+        {
+          id: 'post_4',
+          date: 'July 23, 2020',
+          image: require('@/assets/img/post-img-4.png'),
+          title: 'Facebook tests a new Page design with a cleaner layout ...',
+          caption: 'Facebook  is testing a new design for Facebook Pages that will, among other things, remove the “Like” count, offer a cleaner and more  ...',
+        },
+      ]
+      const postsRU = [
+        {
+          id: 'post_1',
+          date: '23 сентября 2020 г.',
+          image: require('@/assets/img/post-img-3.png'),
+          title: 'Tesla утверждает, что может снизить стоимость ...',
+          caption: 'После полудня, когда Tesla объявила об инновациях, которые компания стремится сократить стоимость электромобилей и накопителей энергии ...',
+        },
+        {
+          id: 'post_2',
+          date: '21 сентября 2020 г.',
+          image: require('@/assets/img/post-img-1.png'),
+          title: 'Pinterest побил ежедневный рекорд загрузок из-за ...',
+          caption: 'Волнение вокруг возможности настраивать домашний экран iPhone после выпуска iOS 14 окупилось для Pinterest ...',
+        },
+        {
+          id: 'post_3',
+          date: '16 сентября 2020 г.',
+          image: require('@/assets/img/post-img-2.png'),
+          title: 'Четыре точки зрения на новый пакет услуг Apple',
+          caption: 'Вчерашнее мероприятие, посвященное аппаратному обеспечению Apple, не было особенно насыщенным для его самых популярных устройств: в Apple Watch и ...',
+        },
+        {
+          id: 'post_4',
+          date: '23 июля 2020 г.',
+          image: require('@/assets/img/post-img-4.png'),
+          title: 'Facebook тестирует новый дизайн страницы ...',
+          caption: 'Facebook тестирует новый дизайн страниц Facebook, который, среди прочего, удалит счетчик «Нравится», предложит более чистый и ...',
+        },
+      ]
+
+      switch (this.lang) {
+        case 'en':
+          this.posts = postsEN
+        break
+
+        case 'ru':
+          this.posts = postsRU
+        break
+      }
+    },
+  },
+  beforeMount() {
+    const postsEN = [
+        {
+          id: 'post_1',
+          date: 'September 23, 2020',
+          image: require('@/assets/img/post-img-3.png'),
+          title: 'Tesla claims it can drive battery costs down even lower ...',
+          caption: 'Amid a packed afternoon of announcements from Tesla around innovations the company is pursuing to slash the cost of electric vehicles and energy storage ...',
+        },
+        {
+          id: 'post_2',
+          date: 'September 22, 2020',
+          image: require('@/assets/img/post-img-1.png'),
+          title: 'Pinterest breaks daily download record due to ...',
+          caption: 'The excitement around the ability to customize your iPhone home screen following the release of iOS 14 has been paying off for Pinterest ...',
+        },
+        {
+          id: 'post_3',
+          date: 'September 16, 2020',
+          image: require('@/assets/img/post-img-2.png'),
+          title: 'Four perspectives on Apple’s new service bundle',
+          caption: 'Apple’s hardware event yesterday wasn’t particularly eventful for its most popular devices, bringing only iterative changes to Apple  Watch and ...',
+        },
+        {
+          id: 'post_4',
+          date: 'July 23, 2020',
+          image: require('@/assets/img/post-img-4.png'),
+          title: 'Facebook tests a new Page design with a cleaner layout ...',
+          caption: 'Facebook  is testing a new design for Facebook Pages that will, among other things, remove the “Like” count, offer a cleaner and more  ...',
+        },
+      ]
+    const postsRU = [
+      {
+        id: 'post_1',
+        date: '23 сентября 2020 г.',
+        image: require('@/assets/img/post-img-3.png'),
+        title: 'Tesla утверждает, что может снизить стоимость ...',
+        caption: 'После полудня, когда Tesla объявила об инновациях, которые компания стремится сократить стоимость электромобилей и накопителей энергии ...',
+      },
+      {
+        id: 'post_2',
+        date: '21 сентября 2020 г.',
+        image: require('@/assets/img/post-img-1.png'),
+        title: 'Pinterest побил ежедневный рекорд загрузок из-за ...',
+        caption: 'Волнение вокруг возможности настраивать домашний экран iPhone после выпуска iOS 14 окупилось для Pinterest ...',
+      },
+      {
+        id: 'post_3',
+        date: '16 сентября 2020 г.',
+        image: require('@/assets/img/post-img-2.png'),
+        title: 'Четыре точки зрения на новый пакет услуг Apple',
+        caption: 'Вчерашнее мероприятие, посвященное аппаратному обеспечению Apple, не было особенно насыщенным для его самых популярных устройств: в Apple Watch и ...',
+      },
+      {
+        id: 'post_4',
+        date: '23 июля 2020 г.',
+        image: require('@/assets/img/post-img-4.png'),
+        title: 'Facebook тестирует новый дизайн страницы ...',
+        caption: 'Facebook тестирует новый дизайн страниц Facebook, который, среди прочего, удалит счетчик «Нравится», предложит более чистый и ...',
+      },
+    ]
+
+    switch (this.lang) {
+      case 'en':
+        this.posts = postsEN
+      break
+
+      case 'ru':
+        this.posts = postsRU
+      break
+    }
+  },
+  mounted() {
+    // anime({
+    //   targets: '.preload_bg_green',
+    //   points: [
+    //     { value: '1920,1080 0,1080 0,0 432.1,0 1920,0' },
+    //     { value: '1920,1080 0,1080 0,0 0,0 0,1080' },
+    //   ],
+    //   easing: 'easeOutQuad',
+    //   duration: 1000,
+    // });
+    // const header = document.querySelector('.page_header')
+    // const content = document.querySelector('.page_content')
+    // const panelTop = document.querySelector('.panel--top')
+    // const panelBottom = document.querySelector('.panel--bottom')
+    // const panelLeft = document.querySelector('.panel--left')
+
+    if (!this.isMobDevice) {
+      anime({
+        targets: '.page_blog',
+        opacity: [0, 1],
+        easing: 'linear',
+        duration: 500,
+        delay: 300
+      })
+      anime({
+        targets: '.page_header',
+        translateX: [-200, 0],
+        opacity: [0, 1],
+        easing: 'easeOutQuad',
+        duration: 1000,
+        delay: 500,
+      })
+      anime({
+        targets: '.post_preview',
+        opacity: [0, 1],
+        easing: 'easeOutQuad',
+        duration: 1000,
+        delay: anime.stagger(500, {start: 700}),
+      })
+
+
+    } else {
+      anime({
+        targets: '.page_blog',
+        opacity: [0, 1],
+        easing: 'linear',
+        duration: 1000,
+        delay: 1000
+      })
+    }
+    
+    // anime({
+    //   targets: panelTop,
+    //   translateX: ['100vw', 0],
+    //   // opacity: [0, 1],
+    //   easing: 'linear',
+    //   duration: 800,
+    // })
+    // anime({
+    //   targets: panelLeft,
+    //   translateX: ['-200px', 0],
+    //   opacity: [0, 1],
+    //   easing: 'easeOutQuad',
+    //   duration: 1000,
+    // })
+    // anime({
+    //   targets: header,
+    //   translateX: ['80vw', 0],
+    //   opacity: [0, 1],
+    //   easing: 'easeOutQuad',
+    //   duration: 1000,
+    //   delay: 200,
+    // })
+    // anime({
+    //   targets: content,
+    //   opacity: [0, 1],
+    //   easing: 'easeOutQuad',
+    //   duration: 700,
+    //   delay: 800,
+    // })
+    // anime({
+    //   targets: panelBottom,
+    //   translateY: ['200px', 0],
+    //   opacity: [0, 1],
+    //   easing: 'linear',
+    //   duration: 300,
+    //   delay: 1300,
+    // })
+  },
+  beforeRouteLeave (to, from, next) {
+    if (!this.isMobDevice) {
+      anime({
+        targets: '.page_blog',
+        opacity: [1, 0],
+        easing: 'linear',
+        duration: 1000,
+        complete: function() { 
+          next();
+        }
+      })
+      // let preloader = document.querySelector('.page_change_preloader')
+      // let random = Math.random() * 2
+      // if (random < 1) {
+      //   preloader.classList.add('green')
+      //   preloader.classList.remove('orange')
+      // } else {
+      //   preloader.classList.add('orange')
+      //   preloader.classList.remove('green')
+      // }
+      // anime({
+      //   targets: '.preload_bg_green',
+      //   points: [
+      //     { value: '1920,1080 0,1080 0,0 0,0 0,1080' },
+      //     { value: '1920,1080 0,1080 0,0 0,0 677,710' },
+      //     { value: '1920,1080 0,1080 0,0 432.1,0 677,710' },
+      //     { value: '1920,1080 0,1080 0,0 432.1,0 1920,0' },
+      //   ],
+      //   easing: 'easeOutQuad',
+      //   duration: 2000,
+      //   complete: function() {
+      //     next();
+      //   }
+      // });
+      
+    } else {
+      anime({
+        targets: '.page_blog',
+        opacity: [1, 0],
+        easing: 'linear',
+        duration: 1000,
+        complete: function() { 
+          next();
+        }
+      })
+      // setTimeout(() => {
+      //   next();
+      // },1500)
+    }
+  },
 }
-.page_header {
-  margin-bottom: 6rem;
+</script>
+
+<style lang="scss" scoped>
+.page_blog {
+  .page_header {}
+  .page_bottom {
+    display: flex;
+    justify-content: center;
+  }
+  .btn_more {
+    padding-left: 2.6rem;
+    padding-right: 3.6rem;
+    .icon {
+      width: 22px;
+      margin-right: 2rem;
+    }
+  }
 }
-.page_title {
-  margin-bottom: 2rem;
-  font-weight: bold;
-  font-size: 6rem;
-  line-height: 7.2rem;
-  text-transform: uppercase;
+.posts_list {
+  padding-bottom: 3rem;
 }
-.page_title_caption {
-  font-size: 2.5rem;
-  line-height: 3.6rem;
+.post_preview {
+  position: relative;
+  margin-bottom: 5rem;
+  height: 33.5rem;
+  display: flex;
+  &.active, &:hover {
+    .post_img {
+      img {
+        transform: scale(1.15);
+        transition: all 1s;
+      }
+    }
+    .post_desc::before {
+      width: 100%;
+      transition: all 1s;
+    }
+    .post_title {
+      color: #fff;
+      transition: all 1s;
+    }
+    .post_caption {
+      color: #fff;
+      opacity: 1;
+      transition: all 1s;
+    }
+  }
+  .post_img {
+    width: 64rem;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    img {
+      width: 100%;
+      transform: scale(1);
+      will-change: transform;
+      transition: all 1s;
+    }
+  }
+  .post_desc {
+    position: relative;
+    padding-left: 6rem;
+    padding-right: 2rem;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    &::before {
+      position: absolute;
+      display: block;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #000;
+      transition: all 1s;
+    }
+  }
+  .post_title {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 5rem;
+    line-height: 6rem;
+    transition: all 1s;
+  }
+  .post_date {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 1.6rem;
+    font-size: 1.8rem;
+    line-height: 143.2%;
+    color: #E56915;
+  }
+  .post_caption {
+    position: relative;
+    z-index: 10;
+    font-size: 2rem;
+    line-height: 143.2%;
+    color: #000000;
+    opacity: 0.5;
+    transition: all 1s;
+  }
 }
-.panel--top.top_view .logo {
-  transform: none !important;
-  width: 3.7rem;
+@media (max-width: 1365px) {
+  .post_preview .post_img {
+    width: 58rem;
+  }
 }
-.panel--top.top_view .contacts {
-  left: 50%;
-  margin-left: -18.5rem;
+@media (max-width: 1366px) and (min-width: 992px) {
+  .page_blog {
+    padding-bottom: 5rem;
+    .btn_more {
+      padding-left: 30px;
+      padding-right: 30px;
+      .icon {
+        width: 22px;
+        margin-right: 50px;
+      }
+    }
+  }
+  .post_preview .post_title {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
 }
-.down_btn {
-  display: none !important;
+@media (max-width: 991px) {
+  .page_blog {
+    padding-bottom: 5rem;
+    .btn_more {
+      padding-left: 1.7rem;
+      padding-right: 2rem;
+      // width: 20rem;
+      display: inline-flex;
+      .icon {
+        width: 35px;
+        margin-right: 2rem;
+      }
+    }
+  }
+  .page_title {
+    margin-bottom: 1rem;
+  }
+  .page_header {
+    margin-bottom: 3rem;
+  }
+  .posts_list {
+    padding-bottom: 1rem;
+  }
+  .post_preview {
+    margin-bottom: 3rem;
+    display: block;
+    height: auto;
+    &.active, &:hover {
+      .post_img {
+        img {
+          transform: none;
+        }
+      }
+      .post_title {
+        color: #000;
+      }
+      .post_caption {
+        color: #808080;
+      }
+    }
+    .post_img {
+      margin-bottom: 1.2rem;
+      width: 100%;
+      height: auto;
+    }
+    .post_desc {
+      padding: 0;
+      &::before {
+        display: none;
+      }
+    }
+    .post_title {
+      margin-bottom: 1.1rem;
+      font-size: 2rem;
+      line-height: 2.3rem;
+    }
+    .post_date {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      line-height: 143.2%;
+    }
+    .post_caption {
+      font-size: 1.6rem;
+      line-height: 2.3rem;
+      color: #808080;
+      opacity: 1;
+    }
+  }
+  
+}
+
+@media (max-width: 767px) {
+  .page_blog .btn_more .icon {
+    width: 22px;
+  }
 }
 </style>

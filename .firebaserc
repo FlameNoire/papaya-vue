@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "default": "vue-papaya"
+  },
+  "hosting": {
+    "rewrites": [ {
+      "source": "**/!(*.css|*.js|*.woff|*.map|*.svg|*.jpg|*.gif|*.png|*.php)",
+      "destination": "/index.html"
+    } ]
+  }
+}
