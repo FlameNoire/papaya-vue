@@ -1,15 +1,17 @@
 <template>
-  <div class="lang_select">
+  <div class="lang_select" @mouseenter="langsOver" @mouseleave="langsLeave">
     <transition  name="fade">
       <ul v-show="langsOpen">
         <li v-for="(lang, i) in langs" :key="`Lang${i}`" :class="{ 'selected': $i18n.locale == lang }"><a class="lang_select_option" href="#" @click.prevent="clickLang(lang)">{{lang}}</a></li>
       </ul>
     </transition>
-    <a href="#" @click.prevent="langsHandler" class="lang_btn">{{$i18n.locale}}</a>
+    <a href="#" @click.prevent class="lang_btn">{{$i18n.locale}}</a>
   </div>
 </template>
 
 <script>
+import { isMobile, isTablet } from "mobile-device-detect"
+
 export default {
   data: () => {
     return {
@@ -17,16 +19,27 @@ export default {
       langs: ['en', 'ru']
     }
   },
+  computed: {
+    isMobDevice() {
+      return isMobile || isTablet ? true : false
+    },
+  },
   methods: {
-    langsHandler() {
-      this.langsOpen = !this.langsOpen
+    langsOver() {
+      this.langsOpen = true
+      console.log(this.$i18n.locale)
+    },
+    langsLeave() {
+      this.langsOpen = false
       console.log(this.$i18n.locale)
     },
     clickLang(lang) {
       this.langsOpen = false
       this.$i18n.locale = lang
       console.log(this.$i18n.locale)
-      this.$store.commit('menuClose')
+      if (!this.isMobDevice) {
+        this.$store.commit('menuClose')
+      }
     },
   }
 }

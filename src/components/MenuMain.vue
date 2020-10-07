@@ -38,7 +38,7 @@
         </ul>
       </nav>
     </div>
-    <a href="#" class="menu_close" @click.prevent="menuToggle"><span></span><span></span></a>
+    <a href="#" class="menu_close" :class="{'opened' : isMenuOpen, 'closed' : !isMenuOpen}" @click.prevent="menuToggle"><span></span><span></span></a>
     <div class="main_menu_bottom clearfix">
       <div class="contacts">
         <ul>
@@ -72,12 +72,12 @@
             </div>
           </li>
           <li class="chat">
-            <a href="#" class="icon ic-chat">
+            <a href="#" class="icon ic-chat" @click.prevent="openRequestForm">
               <img src="@/assets/img/chat.svg" alt=" ">
               <img src="@/assets/img/chat-white.svg" alt=" ">
             </a>
             <div class="info-hover">
-              <a href="#">{{ $t('pannels.t7') }}</a>
+              <a href="#" @click.prevent="openRequestForm">{{ $t('pannels.t7') }}</a>
             </div>
           </li>
           <li class="brief h-sm">
@@ -122,6 +122,16 @@ export default {
   methods: {
     menuToggle() {
       this.$store.commit('menuToggle');
+    },
+    openRequestForm() {
+      this.$store.commit('menuToggle');
+      if (this.$route.path == '/') {
+        this.$store.commit('activeScreenSetter', 5)
+        this.$store.commit('showRequestFormToggler')
+      } else {
+        this.$store.commit('showRequestFormToggler')
+        this.$router.push('/contact')
+      }
     },
     trglsMove() {
       const trgl_1 = document.querySelector('.trgl_1')
@@ -353,6 +363,38 @@ export default {
       background-position-x: center;
     }
   }
+  @keyframes rotate{
+    0% {
+      transform: rotateZ(45deg);
+    }
+    100% {
+      transform: rotateZ(315deg);
+    }
+  }
+  @keyframes rotate2{
+    0% {
+      transform: rotateZ(-45deg);
+    }
+    100% {
+      transform: rotateZ(-315deg);
+    }
+  }
+  @keyframes rotate3{
+    0% {
+      transform: rotateZ(-315deg);
+    }
+    100% {
+      transform: rotateZ(-45deg);
+    }
+  }
+  @keyframes rotate4{
+    0% {
+      transform: rotateZ(315deg);
+    }
+    100% {
+      transform: rotateZ(45deg);
+    }
+  }
   @keyframes fadeIn{
     0% {
       opacity: 0;
@@ -525,7 +567,7 @@ export default {
     .contacts .brief {
       &:hover {
         .info-hover {
-          width: 15rem;
+          width: 16rem;
         }
       }
     }
@@ -590,7 +632,7 @@ export default {
     bottom: 0;
     right: 4rem;
     width: 40.5vw;
-    border-top: 1px solid silver;
+    // border-top: 1px solid silver;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -609,11 +651,12 @@ export default {
   .menu_close {
     display: block;
     position: absolute;
-    top: 3.4rem;
-    right: 4rem;
+    top: 3.5rem;
+    right: 4.5rem;
     width: 22px;
     height: 22px;
     z-index: 50;
+    opacity: 1;
     span {
       position: absolute;
       top: 10px;
@@ -629,14 +672,31 @@ export default {
         transform: rotateZ(-45deg);
       }
     }
-    &:hover {
+    &.opened {
       span {
-        transition: all .5s;
+        // transition: all .5s;
         &:nth-child(1) {
-          transform: rotateZ(315deg);
+          // transform: rotateZ(315deg);
+          animation: rotate 0.5s ease-in forwards;
         }
         &:nth-child(2) {
-          transform: rotateZ(-315deg);
+          // transform: rotateZ(-315deg);
+          animation: rotate2 0.5s ease-in forwards;
+        }
+      }
+    }
+    &.closed {
+      opacity: 0;
+      transition: opacity .3s .5s;
+      span {
+        // transition: all .5s;
+        &:nth-child(1) {
+          // transform: rotateZ(315deg);
+          animation: rotate4 0.6s 0.2s ease-in forwards;
+        }
+        &:nth-child(2) {
+          // transform: rotateZ(-315deg);
+          animation: rotate3 0.6s 0.2s ease-in forwards;
         }
       }
     }

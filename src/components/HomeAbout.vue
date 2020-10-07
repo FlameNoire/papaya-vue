@@ -3,16 +3,22 @@
     <div class="s_content">
       <h2 class="s_title">{{ $t('about.t1') }}</h2>
       <div class="text_wrap">
-        <p class="text-1">
+        <!-- <p class="text-1">
           {{ $t('about.t2') }}
           <br>
           {{ $t('about.t3') }}
-        </p>
-        <p>{{ $t('about.t4') }}</p>
-        <br>
-        <p>{{ $t('about.t5') }}</p>
-        <br>
-        <p>{{ $t('about.t6') }}</p>
+        </p> -->
+        <div class="text-1">
+          <p>{{ $t('about.t2') }}</p>
+          <p>{{ $t('about.t3') }}</p>
+        </div>
+        <div class="text-2">
+          <p>{{ $t('about.t4') }}</p>
+          <br>
+          <p>{{ $t('about.t5') }}</p>
+          <br>
+          <p>{{ $t('about.t6') }}</p>
+        </div>
       </div>
       <router-link to="/about" class="buttons btn_more">
         <i class="icon">
@@ -123,19 +129,26 @@ export default {
   }
   .text-1 {
     margin-bottom: 5rem;
-    font-weight: 400;
-    font-size: 2.5rem;
-    line-height: 3.6rem;
+    p {
+      font-weight: 400;
+      font-size: 2.5rem;
+      line-height: 3.6rem;
+    }
   }
 
   .btn_more {
     margin-top: 8.5rem;
     padding-left: 2.6rem;
     padding-right: 3.6rem;
+    opacity: 0;
+    transition: background-color .3s;
     .icon {
       top: 1px;
       width: 22px;
       margin-right: 2rem;
+    }
+    span {
+      transition: color .3s;
     }
   }
 
@@ -203,17 +216,20 @@ export default {
         line-height: 144%;
       }
       .text-1 {
-        width: 100%;
         margin-bottom: 27px;
-        font-size: 27px;
-        line-height: 128%;
-        font-weight: 400;
+        p {
+          width: 100%;
+          font-size: 27px;
+          line-height: 128%;
+          font-weight: 400;
+        }
       }
 
       .btn_more {
         margin-top: 45px;
         padding: 15px 25px;
         width: 300px;
+        opacity: 1;
         .icon {
           width: 35px;
           height: 23px;
@@ -267,9 +283,11 @@ export default {
     .text-1 {
       width: 24rem;
       margin-bottom: 1.8rem;
-      font-size: 1.8rem;
-      line-height: 128%;
-      font-weight: 400;
+      p {
+        font-size: 1.8rem;
+        line-height: 128%;
+        font-weight: 400;
+      }
     }
 
     .btn_more {
@@ -277,6 +295,7 @@ export default {
       padding: 1rem 1.7rem;
       // width: 20rem;
       display: inline-flex;
+      opacity: 1;
       .icon {
         width: 2.2rem;
         margin-right: 3rem;

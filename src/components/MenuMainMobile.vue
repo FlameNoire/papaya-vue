@@ -1,5 +1,7 @@
 <template>
   <div class="main_menu" :class="{'on_home_top' : activeScreen == 1}">
+    <div class="trgl-1"><img src="@/assets/img/trgl-19.svg" alt=" "></div>
+    <div class="trgl-2"><img src="@/assets/img/trgl-20.svg" alt=" "></div>
     <div class="main_menu_wrap">
       <div class="header">
         <div class="panel--top">
@@ -18,7 +20,7 @@
                 </a>
               </li>
               <li class="chat">
-                <a href="#" class="icon ic-chat">
+                <a href="#" class="icon ic-chat" @click.prevent="openRequestForm">
                   <img src="@/assets/img/chat.svg" alt=" ">
                   <img src="@/assets/img/chat-white.svg" alt=" ">
                 </a>
@@ -70,9 +72,20 @@ export default {
   },
   methods: {
     menuToggle() {
-      this.$store.commit('menuToggle');
+      this.$store.commit('menuToggle')
+    },
+    openRequestForm() {
+      this.$store.commit('menuToggle')
+
+      if (this.$route.path == '/') {
+        this.$store.commit('activeScreenSetter', 5)
+        this.$store.commit('showRequestFormToggler')
+      } else {
+        this.$store.commit('showRequestFormToggler')
+        this.$router.push('/contact')
+      }
     }
-  }
+  },
 }
 </script>
 
@@ -149,6 +162,18 @@ export default {
     z-index: 100;
     background-color: #fff;
     //will-change: ;
+    .trgl-1 {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      margin-top: -18rem;
+    }
+    .trgl-2 {
+      position: absolute;
+      bottom: 50%;
+      left: 1rem;
+      margin-bottom: -13rem;
+    }
     .header {
       position: absolute;
       top: 0;
@@ -224,7 +249,7 @@ export default {
     position: absolute;
     bottom: 0;
     right: 4rem;
-    border-top: 1px solid silver;
+    // border-top: 1px solid silver;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -237,7 +262,7 @@ export default {
     display: block;
     position: absolute;
     top: 1.7rem;
-    right: 20px;
+    right: 24px;
     width: 30px;
     height: 30px;
     z-index: 50;

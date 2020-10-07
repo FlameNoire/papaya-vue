@@ -49,7 +49,7 @@
       </div>
       <div class="bottom">
         <div class="bottom">
-        <a href="#" class="buttons btn_order">
+        <a href="#" class="buttons btn_order" @click.prevent="openRequestForm">
           <i class="icon">
             <img src="@/assets/img/brief-white.svg" alt=" ">
             <img src="@/assets/img/brief.svg" alt=" ">
@@ -73,13 +73,19 @@ export default {
       activeTab: 0,
     }
   },
+  methods: {
+    openRequestForm() {
+      this.$store.commit('showRequestFormToggler')
+      this.$router.push('/contact')
+    }
+  },
   mounted() {
     anime({
       targets: '.page_services',
       opacity: [0, 1],
       easing: 'linear',
-      duration: 1000,
-      delay: 300
+      duration: 500,
+      delay: 500
     })
   }
 }

@@ -43,15 +43,13 @@ export default {
     isVisited() {
       return this.$store.state.isVisited
       // return true
+    },
+    isMenuOpen() {
+      return this.$store.state.isMenuOpen
     }
   },
   mounted() {
-    const app = document.getElementById('app')
-      // this.$store.commit('visitedHandler')
-    setTimeout(() => {
-      // app.style.opacity = 1
-      // this.$store.commit('visitedHandler')
-    }, 5500)
+    // const app = document.getElementById('app')
   }
 }
 </script>
@@ -206,6 +204,7 @@ img {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  // backface-visibility: hidden;
   // justify-content: center;
   &:hover, &:focus {
     color: #000;
@@ -305,7 +304,7 @@ img {
     }
     &:hover {
       .info-hover {
-        width: 250px;
+        width: 185px;
         opacity: 1;
         transition: width .5s;
       }
@@ -328,21 +327,21 @@ img {
     &.skype {
       &:hover {
         .info-hover {
-          width: 15rem;
+          width: 125px;
         }
       }
     }
     &.email {
       &:hover {
         .info-hover {
-          width: 18rem;
+          width: 135px;
         }
       }
     }
     &.chat {
       &:hover {
         .info-hover {
-          width: 8rem;
+          width: 70px;
         }
       }
     }
@@ -352,7 +351,7 @@ img {
       }
       &:hover {
         .info-hover {
-          width: 16rem;
+          width: 185px;
           // margin-top: -3px;
         }
       }

@@ -1,6 +1,6 @@
 <template>
   <div class="papaya_ui_wrap" v-bind:class="{ 'home_page_nav': $route.path == '/' }">
-    <div class="panel--top" :class="{'top_view' : activeScreen == 1}">
+    <div class="panel--top" :class="{'top_view' : pageTop}">
       <router-link to="/" class="logo" @click.native="scrollTop"><img src="@/assets/img/logo_papaya.svg" alt=" "></router-link>
       <div class="contacts">
         <ul>
@@ -9,29 +9,27 @@
               <img src="@/assets/img/phone.svg" alt=" ">
               <img src="@/assets/img/phone-white.svg" alt=" ">
             </a>
-            <div class="info-hover">
-              <!-- <span>VIBER:</span> -->
+            <!-- <div class="info-hover">
               <a href="tel:+380630305858">+38 (063)030-58-58</a>
-              <!-- <span class="slash">\</span> -->
-            </div>
+            </div> -->
           </li>
           <li class="skype">
             <a href="skype:papaya_web?call" class="icon ic-skype">
               <img src="@/assets/img/skype.svg" alt=" ">
               <img src="@/assets/img/skype-white.svg" alt=" ">
             </a>
-            <div class="info-hover">
+            <!-- <div class="info-hover">
               <a href="skype:papaya_web?call">papaya_web</a>
-            </div>
+            </div> -->
           </li>
           <li class="chat">
-            <a href="#" class="icon ic-chat">
+            <a href="#" class="icon ic-chat" @click.prevent="openRequestForm">
               <img src="@/assets/img/chat.svg" alt=" ">
               <img src="@/assets/img/chat-white.svg" alt=" ">
             </a>
-            <div class="info-hover">
+            <!-- <div class="info-hover">
               <a href="#">Chat</a>
-            </div>
+            </div> -->
           </li>
         </ul>
       </div>
@@ -55,6 +53,7 @@ export default {
   },
   data: () => {
     return {
+      pageTop: true,
       pagination: ['01', '02', '03', '04', '05']
     }
   },
@@ -84,17 +83,21 @@ export default {
       this.$store.commit('activeScreenSetter', index)
     },
     menuFadeOut(el, done) {
+      document.body.style.height = 'auto'
+      document.body.style.overflow = 'visible'
       anime({
         targets: '.main_menu_wrap',
         opacity: [1, 0],
         easing: 'linear',
-        duration: 1000,
+        duration: 500,
         complete: function() {
           done()
         }
       })
     },
     menuFadeIn(el) {
+      document.body.style.height = '100vh'
+      document.body.style.overflow = 'hidden'
       anime({
         targets: '.main_menu_wrap',
         opacity: [0, 1],
@@ -102,7 +105,28 @@ export default {
         duration: 500,
         delay: 500
       })
+    },
+    openRequestForm() {
+      if (this.$route.path == '/') {
+        this.$store.commit('activeScreenSetter', 5)
+        this.$store.commit('showRequestFormToggler')
+      } else {
+        this.$store.commit('showRequestFormToggler')
+        this.$router.push('/contact')
+      }
     }
+  },
+
+  mounted() {
+    let st = window.scrollY
+    document.addEventListener('scroll', function() {
+      if (window.scrollY > st && st > 200) {
+        document.querySelector('.panel--top').classList.remove('top_view')
+      } else if (window.scrollY < st && st < 400) {
+        document.querySelector('.panel--top').classList.add('top_view')
+      }
+      st = window.scrollY
+    })
   }
 }
 </script>

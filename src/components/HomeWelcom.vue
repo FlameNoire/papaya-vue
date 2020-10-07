@@ -13,7 +13,7 @@
           <agile v-if="renderSlider" ref="carousel" :options="carouselOptions" @before-change="beforeChangeSlide($event)" @after-change="slideAnimation($event)">
 
             <div v-for="(item, index) in slidesArr" :key="index" class="slide">
-              <h2 class="main_title">
+              <h2 class="main_title" :class="{'ru' : $i18n.locale == 'ru'}">
                 <p>{{item.title}}</p>
                 <span class="sm">{{item.text}}</span>
               </h2>
@@ -122,44 +122,57 @@ export default {
       // console.log(this.slideHeight)
     },
     slideAnimation(event) {
-      const ctn = document.querySelector('.main_title_wrap .agile')
-      const slide = document.querySelectorAll('.agile__slides--regular .main_title')[event.currentSlide]
-      const slideHeight = this.slideHeight
-      const titleItems = document.querySelectorAll('.agile__slides--regular .main_title p')
-      const textItem = document.querySelectorAll('.agile__slides--regular .main_title .sm')
-      const currentTitleCtn = titleItems[event.currentSlide]
-      // currentTitleCtn.style.opacity = 0
-      const currentTextCtn = textItem[event.currentSlide]
-      // currentTextCtn.style.opacity = 0
-      const text1 = this.slidesArr[event.currentSlide].title
-      const text2 = this.slidesArr[event.currentSlide].text
+      if ( !this.isMobDevice ) {
+        const ctn = document.querySelector('.main_title_wrap .agile')
+        const slide = document.querySelectorAll('.agile__slides--regular .main_title')[event.currentSlide]
+        const slideHeight = this.slideHeight
+        const titleItems = document.querySelectorAll('.agile__slides--regular .main_title p')
+        const textItem = document.querySelectorAll('.agile__slides--regular .main_title .sm')
+        const currentTitleCtn = titleItems[event.currentSlide]
+        // currentTitleCtn.style.opacity = 0
+        const currentTextCtn = textItem[event.currentSlide]
+        // currentTextCtn.style.opacity = 0
+        const text1 = this.slidesArr[event.currentSlide].title
+        const text2 = this.slidesArr[event.currentSlide].text
 
-      if (this.slideHeight) {
+        if (this.slideHeight) {
+          anime({
+            targets: ctn,
+            height: [slideHeight + 'px', slide.offsetHeight + 'px'],
+            easing: 'linear',
+            duration: 500
+          })
+
+          this.slideHeight = slide.offsetHeight + 'px'
+          // console.log(this.slideHeight)
+        }
+
+        this.textTyping(currentTitleCtn, text1, 10, 100)
+        this.textTyping(currentTextCtn, text2, 10, 200)
+      } else {
+        const slide = document.querySelectorAll('.agile__slides--regular .main_title')[event.currentSlide]
+        // console.log(slide)
         anime({
-          targets: ctn,
-          height: [slideHeight + 'px', slide.offsetHeight + 'px'],
+          targets: slide,
+          opacity: [0, 1],
           easing: 'linear',
-          duration: 500
+          duration: 1000
         })
-
-        this.slideHeight = slide.offsetHeight + 'px'
-        // console.log(this.slideHeight)
       }
-
-      this.textTyping(currentTitleCtn, text1, 40, 300)
-      this.textTyping(currentTextCtn, text2, 40, 1000)
     },
     setSliderHeight() {
-      const ctn = document.querySelector('.agile')
-      const slide = document.querySelector('.agile__slides--regular .agile__slide--current .main_title')
-      // anime({
-      //   targets: '.s_first',
-      //   opacity: [0, 1],
-      //   easing: 'linear',
-      //   duration: 500,
-      //   delay: 500
-      // })
-      ctn.style.height = slide.offsetHeight + 'px'
+      if ( !this.isMobDevice ) {
+        const ctn = document.querySelector('.agile')
+        const slide = document.querySelector('.agile__slides--regular .agile__slide--current .main_title')
+        // anime({
+        //   targets: '.s_first',
+        //   opacity: [0, 1],
+        //   easing: 'linear',
+        //   duration: 500,
+        //   delay: 500
+        // })
+        ctn.style.height = slide.offsetHeight + 'px'
+      }
     },
     openRequestForm() {
       this.$store.commit('activeScreenSetter', 5)
@@ -344,23 +357,36 @@ export default {
   }
   .main_title {
     margin-top: 0;
+    // height: 11.5rem;
     color: #000;
     // font-size: 7rem;
     // line-height: 8.4rem;
-    font-size: 6rem;
-    line-height: 7.2rem;
+    // font-size: 6rem;
+    // line-height: 7.2rem;
+    font-size: 5.5rem;
+    line-height: 6.6rem;
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
     user-select: none;
+    // &.ru {
+    //   font-size: 5rem;
+    //   line-height: 6rem;
+    //   .sm {
+    //     font-size: 3rem;
+    //     line-height: 3.5rem;
+    //   }
+    // }
     span {
       display: inline-block;
     }
     .sm {
       display: block;
       font-weight: 100;
-      font-size: 3.6rem;
-      line-height: 4.3rem;
+      // font-size: 3.6rem;
+      // line-height: 4.3rem;
+      font-size: 3.2rem;
+      line-height: 4.8rem;
       text-align: center;
       text-transform: none;
     }
@@ -411,11 +437,20 @@ export default {
         margin-bottom: 90px;
       }
       .main_title {
+        // height: auto;
         font-size: 45px;
         line-height: 45px;
+        // &.ru {
+        //   font-size: 45px;
+        //   line-height: 45px;
+        //   .sm {
+        //     font-size: 30px;
+        //     line-height: 35px;
+        //   }
+        // }
         .sm {
-          margin-top: 15px;
-          font-size: 37px;
+          margin-top: 5px;
+          font-size: 30px;
           line-height: 35px;
         }
       }
@@ -492,9 +527,19 @@ export default {
       padding-right: 3rem;
     }
     .main_title {
+      // height: auto;
       font-size: 2.5rem;
       line-height: 2.5rem;
       font-weight: 700;
+      // &.ru {
+      //   font-size: 2.2rem;
+      //   line-height: 2.5rem;
+      //   .sm {
+      //     margin-top: 0.8rem;
+      //     font-size: 1.8rem;
+      //     line-height: 2rem;
+      //   }
+      // }
       .sm {
         margin-top: 1rem;
         font-size: 2rem;
@@ -527,7 +572,7 @@ export default {
     }
     .btn_down {
       position: absolute;
-      bottom: 1rem;
+      bottom: 2rem;
       left: 50%;
       margin-left: -1.5rem;
       width: 3rem;
@@ -546,6 +591,13 @@ export default {
   .s_first {
     padding-left: 30px;
     padding-right: 30px;
+  }
+}
+@media (max-width: 575px) {
+  .s_first .main_title_wrap {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 </style>

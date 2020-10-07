@@ -1,5 +1,6 @@
 <template>
   <div class="papaya_ui_wrap" v-bind:class="{ 'home_page_nav': $route.path == '/', 'page_contacts_nav': $route.path == '/contact' }">
+
     <div class="panel--fixed panel--top" :class="{'top_view' : activeScreen == 1}">
       <!-- <router-link to="/" class="logo" @click.native="scrollTop"><img src="@/assets/img/logo_papaya.svg" alt=" "></router-link> -->
       <router-link to="/" class="logo" @click.native="scrollTop"><img src="@/assets/img/logo_papaya.svg" alt=" "></router-link>
@@ -35,12 +36,12 @@
             </div>
           </li>
           <li class="chat">
-            <a href="#" class="icon ic-chat">
+            <a href="#" class="icon ic-chat" @click.prevent="openRequestForm">
               <img src="@/assets/img/chat.svg" alt=" ">
               <img src="@/assets/img/chat-white.svg" alt=" ">
             </a>
             <div class="info-hover">
-              <a href="#">{{ $t('pannels.t7') }}</a>
+              <a href="#" @click.prevent="openRequestForm">{{ $t('pannels.t7') }}</a>
             </div>
           </li>
           <li class="brief h-sm">
@@ -56,6 +57,7 @@
       </div>
       <a href="#" class="menu_btn" @click.prevent="menuToggle"><img src="@/assets/img/burger.svg" alt=" "></a>
     </div>
+
     <div v-if="$route.path == '/'" class="panel--fixed panel--right">
       <ul class="pagination">
         <li v-for="(item, index) in pagination" :key="item" :class="{ active: paginationActive - 1 == index }">
@@ -63,13 +65,7 @@
         </li>
       </ul>
     </div>
-    <!-- <div v-else-if="$route.path == '/services'" class="panel--fixed panel--right">
-      <ul class="pagination">
-        <li v-for="(item, index) in pagination" :key="item" :class="{ active: paginationActive - 1 == index }">
-          <a :href="'#screen_' + index" @click.prevent="paginationHandler2(index)">{{item}}</a>
-        </li>
-      </ul>
-    </div> -->
+
     <div class="panel--fixed panel--bottom">
       <div class="social">
         <ul>
@@ -85,6 +81,7 @@
       <a href="#" v-if="paginationActive < 5" class="down_btn scroll-btn" @click.prevent="scrollDown"><img src="@/assets/img/arrow_down.svg" alt=" "></a>
       <LangSelect></LangSelect>
     </div>
+
     <div v-if="$route.path != '/portfolio/works'" class="panel--fixed panel--left">
       <ul v-if="$route.path == '/'" class="breadcrumb">
         <li><a href="/" @click.prevent="$store.commit('activeScreenSetter', 1)">{{ $t('pannels.t1') }}</a></li>
@@ -156,19 +153,7 @@ export default {
       index += 1
       this.$store.commit('activeScreenSetter', index)
     },
-    /* paginationHandler2(index) {
-      index += 1
-      this.$store.commit('activeScreenSetter', index)
-      console.log(this.activeScreen)
-      const scene = document.querySelector('#scene' + index)
-      console.log(scene)
-      let sceneY = pageYOffset + scene.getBoundingClientRect().top
-      console.log(sceneY)
-      window.scrollTo({
-        top: sceneY,
-        behavior: "smooth"
-      })
-    }, */
+
     menuFadeOut(el, done) {
       // document.querySelector('.main_menu').classList.remove('active')
       anime({
@@ -229,6 +214,15 @@ export default {
         easing: 'linear',
         duration: 100,
       })
+    },
+    openRequestForm() {
+      if (this.$route.path == '/') {
+        this.$store.commit('activeScreenSetter', 5)
+        this.$store.commit('showRequestFormToggler')
+      } else {
+        this.$store.commit('showRequestFormToggler')
+        this.$router.push('/contact')
+      }
     }
   }
 }
@@ -240,13 +234,12 @@ export default {
       opacity: 1;
       transform: translateX(-150px);
       z-index: 20;
-      transition: all 1s 0.6s;
-      transition: all 1s 0.6s;
+      transition: all .6s .5s;
     }
     .panel--top.top_view .contacts {
       left: 4rem;
       margin-left: 0;
-      transition: all 1s 0s ease-out;
+      transition: all .7s 0s ease-out;
     }
     .down_btn {
       display: flex;
@@ -310,7 +303,7 @@ export default {
         position: absolute;
         left: 50%;
         margin-left: -18.5rem;
-        transition: all 1s .6s ease-in-out;
+        transition: all .7s .6s ease-in-out;
       }
     }
     &--right {

@@ -6,8 +6,10 @@
         <!-- <p class="text-1">We build digital products, <br> services and businesses</p> -->
         <p class="text-1" v-html="$t('portfolio.t2')"></p>
         <!-- <p>Our products speak for themselves. <br> Take a look at our latest wo копия</p> -->
-        <p v-html="$t('portfolio.t3')"></p>
-        <p v-html="$t('portfolio.t4')"></p>
+        <div class="text-2">
+          <p v-html="$t('portfolio.t3')"></p>
+          <p v-html="$t('portfolio.t4')"></p>
+        </div>
       </div>
       <router-link v-if="!isMobDevice" to="/portfolio" class="buttons btn_more">
         <i class="icon">
@@ -123,11 +125,15 @@ export default {
     padding-left: 2.6rem;
     padding-right: 3.6rem;
     margin-top: 11rem;
-    // opacity: 0;
-    transform: none !important;
+    opacity: 0;
+    transition: background-color .3s;
+    // transform: translateX('-20vw');
     .icon {
       width: 22px;
       margin-right: 2rem;
+    }
+    span {
+      transition: color .3s;
     }
   }
   .bg_trgl {
@@ -319,6 +325,7 @@ export default {
         padding-right: 30px;
         margin-top: 30px;
         width: 300px;
+        opacity: 1;
         .icon {
           margin-right: 45px;
           width: 35px;
@@ -434,6 +441,7 @@ export default {
       margin-top: 2.1rem;
       // width: 20rem;
       display: inline-flex;
+      opacity: 1;
       .icon {
         margin-right: 3rem;
         width: 2.2rem;

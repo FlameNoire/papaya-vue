@@ -94,20 +94,38 @@ export default {
     //   easing: 'easeOutQuad',
     //   duration: 1000,
     // });
-    anime({
-      targets: document.querySelector('.page_header'),
-      opacity: [0, 1],
-      easing: 'linear',
-      duration: 1000,
-      delay: 500,
-    })
-    anime({
-      targets: document.querySelector('.page_content'),
-      opacity: [0, 1],
-      easing: 'linear',
-      duration: 1000,
-      delay: 800,
-    });
+    if (this.isMobDevice) {
+      anime({
+        targets: document.querySelector('.page_header'),
+        opacity: [0, 1],
+        easing: 'linear',
+        duration: 500,
+        delay: 200,
+      })
+      anime({
+        targets: document.querySelector('.page_content'),
+        opacity: [0, 1],
+        easing: 'linear',
+        duration: 500,
+        delay: 500,
+      })
+    } else {
+      anime({
+        targets: document.querySelector('.page_header'),
+        opacity: [0, 1],
+        easing: 'linear',
+        duration: 1000,
+        delay: 500,
+      })
+      anime({
+        targets: document.querySelector('.page_content'),
+        opacity: [0, 1],
+        easing: 'linear',
+        duration: 1000,
+        delay: 800,
+      })
+    }
+    
   },
   beforeMount() {
 
@@ -142,18 +160,18 @@ export default {
       targets: document.querySelector('.page_header'),
       opacity: [1, 0],
       easing: 'linear',
-      duration: 500,
-      delay: 500,
-      complete: function() { 
-        next();
-      }
+      duration: 800,
+      delay: 200,
+      // complete: function() { 
+      //   next();
+      // }
     })
     anime({
       targets: document.querySelector('.page_content'),
       opacity: [1, 0],
       easing: 'linear',
-      duration: 700,
-      delay: 300,
+      duration: 800,
+      delay: 200,
       complete: function() { 
         next();
       }

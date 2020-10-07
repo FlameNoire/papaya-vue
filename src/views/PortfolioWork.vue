@@ -391,8 +391,8 @@ export default {
       targets: '.page_portfolio',
       opacity: [0, 1],
       easing: 'linear',
-      duration: 1000,
-      delay: 1000
+      duration: 700,
+      delay: 800
     })
     // anime({
     //   targets: document.querySelector('.page_header'),
@@ -423,7 +423,7 @@ export default {
       targets: '.page_portfolio',
       opacity: [1, 0],
       easing: 'linear',
-      duration: 1000,
+      duration: 500,
       complete: function() { 
         next();
       }
@@ -599,6 +599,8 @@ export default {
     padding-bottom: 4rem;
     padding-left: 40px;
     padding-right: 40px;
+    // overflow: hidden;
+    // height: 100vh;
     .navigation {
       display: none;
     }
@@ -612,6 +614,11 @@ export default {
           display: block;
         }
       }
+    }
+    .image_zoom {
+      bottom: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
     .page_content {
       // margin-bottom: 3rem;

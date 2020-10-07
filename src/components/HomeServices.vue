@@ -132,7 +132,7 @@ import { isMobile, isTablet } from "mobile-device-detect"
 export default {
     data: () => {
     return {
-      activeTab: 0,
+      activeTab: null,
       currentTab: '',
       renderServices: false,
       services_cats: [
@@ -1029,7 +1029,7 @@ export default {
   .mobile {
     .s_third {
       height: auto;
-      min-height: 100vh;
+      // min-height: 100vh;
       padding-left: 40px;
       padding-right: 40px;
       justify-content: flex-start;
@@ -1183,7 +1183,7 @@ export default {
 @media (max-width: 991px) {
   .s_third {
     height: auto;
-    min-height: 100vh;
+    // min-height: 100vh;
     padding-left: 4rem;
     padding-right: 4rem;
     justify-content: flex-start;

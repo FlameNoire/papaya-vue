@@ -114,22 +114,12 @@ export default {
   },
   methods: {
 
-    // scrollTop: debounce(function() {
-    //   this.scrollHash.push(this.activeScreen)
-    //   this.$store.commit('activeScreenDecr');
-    // }, 2000),
-
-    // scrollBottom: debounce(function() {
-    //   this.scrollHash.push(this.activeScreen)
-    //   this.$store.commit('activeScreenIncr');
-    // }, 2000),
-
     scrollTop: function() {
       if (this.scroll) {
         this.scroll = false
         this.$store.commit('scrollHashPush', this.activeScreen)
         this.$store.commit('activeScreenDecr');
-        setTimeout(() => { this.scroll = true }, 2500)
+        setTimeout(() => { this.scroll = true }, 1700)
       }
     },
 
@@ -138,7 +128,7 @@ export default {
         this.scroll = false
         this.$store.commit('scrollHashPush', this.activeScreen)
         this.$store.commit('activeScreenIncr');
-        setTimeout(() => { this.scroll = true }, 2500)
+        setTimeout(() => { this.scroll = true }, 1700)
       }
     },
 
@@ -159,8 +149,8 @@ export default {
           targets: [logo, title, btnsWrap],
           opacity: [0, 1],
           easing: 'linear',
-          duration: 1000,
-          delay: anime.stagger(300, {start: 500}),
+          duration: 500,
+          delay: anime.stagger(200, {start: 500}),
         })
         // anime({
         //   targets: '.trgl-1',
@@ -239,7 +229,7 @@ export default {
           translateY: 0,
           rotate: '0deg',
           easing: 'easeInQuart',
-          duration: 1500,
+          duration: 1000,
           complete: function() {
             trgl_4.classList.remove('active')
         
@@ -274,8 +264,8 @@ export default {
         targets: [logo, btnsWrap, title,],
         opacity: [1, 0],
         easing: 'linear',
-        duration: 600,
-        delay: anime.stagger(300),
+        duration: 500,
+        delay: anime.stagger(200),
         complete: function() {
           done()
         }
@@ -323,11 +313,12 @@ export default {
       // if (!this.isMobDevice) {
       //   this.$refs.portfolio.$forceUpdate()
       // }
-      // const title = document.querySelector('.s_second .s_title')
+      const title = document.querySelector('.s_second .s_title')
       // const text = document.querySelector('.s_second .text')
-      // const t1 = document.querySelector('.s_second .text-1')
-      // const t2 = document.querySelector('.s_second .text-1 + p')
-      // const btn = document.querySelector('.s_second .btn_more')
+      const t1 = document.querySelector('.s_second .text-1')
+      const t2 = document.querySelector('.s_second .text-2')
+      // const t3 = document.querySelector('.s_second .text-1 + p + p')
+      const btn = document.querySelector('.s_second .btn_more')
       const monitor = document.querySelector('.slider_portfolio')
       const trgl_4 = document.querySelector('.trgl-4')
       
@@ -344,7 +335,7 @@ export default {
         // rotateZ: '0deg',
         scale: [1, 5],
         easing: 'linear',
-        duration: 1000,
+        duration: 800,
         delay: 0,
         begin: function() {
           trgl_4.classList.add('active')
@@ -353,32 +344,56 @@ export default {
           anime.remove(trgl_4)
         }
       })
+      // anime({
+      //   targets: '.s_second .block--left',
+      //   translateX: ['-15vw', 0],
+      //   opacity: [0, 1],
+      //   easing: 'easeOutQuad',
+      //   duration: 1000,
+      //   delay: 1000,
+      // })
       anime({
-        targets: '.s_second .block--left',
-        translateX: ['-15vw', 0],
+        targets: [title, t1, t2, btn],
+        translateX: ['-10vw', 0],
         opacity: [0, 1],
         easing: 'easeOutQuad',
-        duration: 1000,
-        delay: 1000,
-        // delay: anime.stagger(200, {start: 1500}),
+        duration: 500,
+        // delay: 700,
+        delay: anime.stagger(100, {start: 500})
       })
+      // anime({
+      //   targets: btn,
+      //   opacity: [0, 1],
+      //   easing: 'easeOutQuad',
+      //   duration: 500,
+      //   delay: 1000,
+      // })
+      // anime({
+      //   targets: '.s_second .block--left',
+      //   translateX: ['-15vw', 0],
+      //   opacity: [0, 1],
+      //   easing: 'easeOutQuad',
+      //   duration: 1000,
+      //   delay: 1000,
+      // })
 
       anime({
         targets: monitor,
         // translateX: ['10vw', 0],
         opacity: [0, 1],
         easing: 'easeInQuad',
-        duration: 1000,
-        delay: 1000,
+        duration: 800,
+        delay: 600,
         // complete: function() {
         //   done()
         // }
       });
     },
     leaveSecondScreen: function (el, done) {
-      // const title = document.querySelector('.s_second .s_title')
-      // const text = document.querySelector('.s_second .text')
-      // const btn = document.querySelector('.s_second .btn_more')
+      const title = document.querySelector('.s_second .s_title')
+      const t1 = document.querySelector('.s_second .text-1')
+      const t2 = document.querySelector('.s_second .text-2')
+      const btn = document.querySelector('.s_second .btn_more')
       const monitor = document.querySelector('.slider_portfolio')
       const trgl_4 = document.querySelector('.trgl-4')
       
@@ -388,24 +403,32 @@ export default {
       //   duration: 1500,
       // })
       anime({
-        targets: '.s_second .block--left',
-        translateX: [0, '-15vw'],
+        targets: [title, t1, t2, btn],
+        translateX: [0, '-10vw'],
         opacity: [1, 0],
         easing: 'easeOutQuad',
-        duration: 1000,
-        delay: anime.stagger(200),
+        duration: 700,
+        // delay: 700,
+        delay: anime.stagger(100)
       })
+      // anime({
+      //   targets: '.s_second .block--left',
+      //   translateX: [0, '-15vw'],
+      //   opacity: [1, 0],
+      //   easing: 'easeOutQuad',
+      //   duration: 700,
+      // })
 
       anime({
         targets: monitor,
         // translateX: ['10vw', 0],
         opacity: [1, 0],
         easing: 'easeOutQuad',
-        duration: 1300,
+        duration: 700,
         complete: function() {
           done()
         }
-      });
+      })
     },
 
     enterThirdScreen: function (el, done) {
@@ -425,7 +448,7 @@ export default {
         rotate: 0,
         scale: 1,
         easing: 'easeInQuart',
-        duration: 1000,
+        duration: 700,
         begin: function() {
           trgl_4.classList.remove('active')
         },
@@ -449,28 +472,28 @@ export default {
         targets: title,
         opacity: [0, 1],
         easing: 'easeOutQuad',
-        duration: 1000,
-        delay: 700,
+        duration: 700,
+        delay: 300,
       })
       anime({
         targets: tablet,
         opacity: [0, 1],
         easing: 'easeOutQuad',
-        duration: 1000,
-        delay: 1000,
-        complete: function() {
-          done()
-        }
+        duration: 700,
+        delay: 400,
+        // complete: function() {
+        //   done()
+        // }
       })
       anime({
         targets: servicesBlock,
         opacity: [0, 1],
         easing: 'easeOutQuad',
-        duration: 1000,
-        delay: 1000,
-        complete: function() {
-          done()
-        }
+        duration: 700,
+        delay: 300,
+        // complete: function() {
+        //   done()
+        // }
       })
     },
     leaveThirdScreen: function (el, done) {
@@ -494,33 +517,24 @@ export default {
       //   },
       // })
       anime({
-        targets: '.trgl-4',
-        opacity: [0, 1],
-        easing: 'easeOutQuad',
-        duration: 2000,
-      })
-      anime({
         targets: title,
         opacity: [1, 0],
         easing: 'easeOutQuad',
-        duration: 1000,
+        duration: 700,
       })
       anime({
         targets: tablet,
         opacity: [1, 0],
         easing: 'easeOutQuad',
-        duration: 1000,
+        duration: 700,
         // delay: 500,
       })
       anime({
         targets: servicesBlock,
         opacity: [1, 0],
         easing: 'easeOutQuad',
-        duration: 1000,
+        duration: 700,
         // delay: 500,
-        complete: function() {
-          done()
-        }
       })
 
       anime({
@@ -537,15 +551,30 @@ export default {
         translateY: 0,
         easing: 'linear',
         duration: 800,
-      });
+        complete: function() {
+          done()
+        }
+      })
+      anime({
+        targets: '.trgl-4',
+        opacity: [0, 1],
+        easing: 'easeOutQuad',
+        duration: 1000,
+        complete: function() {
+          done()
+        }
+      })
     },
 
     enterFoursScreen: function (el, done) {
       // if (!this.isMobDevice) {
       //   this.$refs.about.$forceUpdate()
       // }
-
-      const aboutContent = document.querySelector('.s_fours .s_content')
+      // const aboutContent = document.querySelector('.s_fours .s_content')
+      const title = document.querySelector('.s_fours .s_title')
+      const t1 = document.querySelectorAll('.s_fours .text-1 p')
+      const t2 = document.querySelectorAll('.s_fours .text-2 p')
+      const btn = document.querySelector('.s_fours .btn_more')
       const papaya = document.querySelector('.s_fours .bg_image')
       const trgl_4 = document.querySelector('.trgl-4')
 
@@ -557,21 +586,21 @@ export default {
           // translateY: ['100vh', 0],
           opacity: [0, 1],
           easing: 'easeOutQuad',
-          duration: 1000,
-          delay: 600,
+          duration: 700,
+          delay: 300,
         })
       }
       
       anime({
-        targets: aboutContent,
-        translateX: ['-15vw', 0],
+        targets: [title, t1, t2, btn],
+        translateX: ['-10vw', 0],
         opacity: [0, 1],
         easing: 'easeOutQuad',
-        duration: 1000,
-        delay: 800,
-        complete: function() {
-          done()
-        }
+        duration: 500,
+        delay: anime.stagger(100, {start: 400}),
+        // complete: function() {
+        //   done()
+        // }
       })
       anime({
         targets: '.trgl-4',
@@ -579,31 +608,36 @@ export default {
         translateY: [anime.get(trgl_4, 'translateY', 'px'), '200px'],
         scale: [1, 1.1],
         easing: 'easeInQuart',
-        duration: 1000,
+        duration: 700,
         complete: function() {
           anime.remove(trgl_4)
         }
       })
     },
     leaveFoursScreen: function (el, done) {
-      const aboutContent = document.querySelector('.s_fours .s_content')
+      // const aboutContent = document.querySelector('.s_fours .s_content')
+      const title = document.querySelector('.s_fours .s_title')
+      const t1 = document.querySelectorAll('.s_fours .text-1 p')
+      const t2 = document.querySelectorAll('.s_fours .text-2 p')
+      const btn = document.querySelector('.s_fours .btn_more')
       const papaya = document.querySelector('.s_fours .bg_image')
       if (this.activeScreen != 5) {
         anime({
-        targets: papaya,
-          opacity: [1, 0],
-          easing: 'easeOutQuad',
-          duration: 1000,
-          delay: 200
-        })
+          targets: papaya,
+            opacity: [1, 0],
+            easing: 'easeOutQuad',
+            duration: 700,
+            delay: 200
+          })
       }
       
       anime({
-        targets: aboutContent,
-        translateX: [0, '-15vw'],
+        targets: [title, t1, t2, btn],
+        translateX: [0, '-10vw'],
         opacity: [1, 0],
         easing: 'easeOutQuad',
-        duration: 1000,
+        duration: 700,
+        delay: anime.stagger(100),
         complete: function() {
           done()
         }
@@ -614,6 +648,9 @@ export default {
       // if (!this.isMobDevice) {
       //   this.$refs.contact.$forceUpdate()
       // }
+      // const contact_items = document.querySelectorAll('.our_contacts .contacts_item')
+      // const title = document.querySelector('.s_contact_us .s_title')
+      // const btn = document.querySelector('.s_contact_us .btn_more')
       const smoke = document.querySelector('.s_contact_us .bg_image')
       const form = document.querySelector('.s_contact_us .s_content')
       const trgl_4 = document.querySelector('.trgl-4')
@@ -624,19 +661,27 @@ export default {
         translateX: ['-15vw', 0],
         opacity: [0, 1],
         easing: 'easeOutQuad',
-        duration: 1000,
+        duration: 700,
         delay: 500,
         complete: function() {
           done()
         }
       })
+      // anime({
+      //   targets: [title, contact_items, btn],
+      //   translateX: ['-10vw', 0],
+      //   opacity: [0, 1],
+      //   easing: 'easeOutQuad',
+      //   duration: 700,
+      //   delay: anime.stagger(100, {start: 300}),
+      // })
       if (this.scrollHash[this.scrollHash.length - 1] == 4) {
         anime({
           targets: smoke,
           translateY: ['100vh', 0],
           // opacity: [0, 1],
           easing: 'easeOutQuad',
-          duration: 1000,
+          duration: 700,
           // delay: 1000,
         })
         anime({
@@ -644,7 +689,7 @@ export default {
           translateY: [0, '-100vh'],
           // opacity: [0, 1],
           easing: 'easeOutQuad',
-          duration: 1000,
+          duration: 700,
           // delay: 1000,
         })
       } else {
@@ -655,14 +700,14 @@ export default {
           // translateY: ['100vh', 0],
           opacity: [0, 1],
           easing: 'easeOutQuad',
-          duration: 1500,
-          delay: 600,
+          duration: 700,
+          delay: 200,
         })
         anime({
           targets: papaya,
           opacity: [1, 0],
           easing: 'easeOutQuad',
-          duration: 1000,
+          duration: 700,
           // delay: 1000,
         })
       }
@@ -673,13 +718,16 @@ export default {
         translateY: [anime.get(trgl_4, 'translateY', 'px'), '200px'],
         scale: [1, 1.1],
         easing: 'easeInQuart',
-        duration: 1000,
+        duration: 700,
         complete: function() {
           anime.remove(trgl_4)
         }
       })
     },
     leaveFifthScreen: function (el, done) {
+      // const contact_items = document.querySelectorAll('.our_contacts .contacts_item')
+      // const title = document.querySelector('.s_contact_us .s_title')
+      // const btn = document.querySelector('.s_contact_us .btn_more')
       const smoke = document.querySelector('.s_contact_us .bg_image')
       const form = document.querySelector('.s_contact_us .s_content')
       const papaya = document.querySelector('.s_fours .bg_image')
@@ -690,7 +738,7 @@ export default {
           translateY: [0, '100vh'],
           // opacity: [0, 1],
           easing: 'easeOutQuad',
-          duration: 1000,
+          duration: 700,
           // delay: 1000,
         })
         anime({
@@ -698,7 +746,7 @@ export default {
           translateY: ['-100vh', 0],
           // opacity: 1,
           easing: 'easeOutQuad',
-          duration: 1000,
+          duration: 700,
           // delay: 1000,
         })
       } else {
@@ -707,7 +755,7 @@ export default {
           // translateY: [0, '100vh'],
           opacity: [1, 0],
           easing: 'easeOutQuad',
-          duration: 1000,
+          duration: 700,
           // delay: 1000,
         })
       }
@@ -716,11 +764,22 @@ export default {
         translateX: [0, '-15vw'],
         opacity: [1, 0],
         easing: 'easeOutQuad',
-        duration: 1500,
+        duration: 700,
         complete: function() {
           done()
         }
       })
+      // anime({
+      //   targets: [title, contact_items, btn],
+      //   translateX: [0, '-10vw'],
+      //   opacity: [1, 0],
+      //   easing: 'easeOutQuad',
+      //   duration: 700,
+      //   delay: anime.stagger(100),
+      //   complete: function() {
+      //     done()
+      //   }
+      // })
     },
 
   },
@@ -869,13 +928,13 @@ export default {
           targets: '.s_first',
           opacity: [0, 1],
           easing: 'linear',
-          duration: 1000,
-          delay: 1000,
+          duration: 500,
+          delay: 100,
         })
 
         document.addEventListener('touchend', (e) => {
-          console.log(e)
-          console.log(window.scrollY)
+          // console.log(e)
+          // console.log(window.scrollY)
           if (window.scrollY > 300) {
             this.$store.commit('activeScreenSetter', 2)
           } else {
@@ -953,17 +1012,17 @@ export default {
     const page = document.querySelector('.home')
 
     const addOnWheel = function(e) {
-
       var delta = e.deltaY || e.detail || e.wheelDelta;
           // console.log('delta');
           // console.log(e);
-
+          
       if (e.deltaY && e.target) {
         if (!(e.target.classList.contains("portfolio_img"))) {
+          // e.preventDefault()
           
           if (delta > 0) {
             //scroll down
-            console.log('Down')
+            // console.log('Down')
             if (this.isMobDevice && window.pageYOffset > 150) {
               this.$store.commit('activeScreenSetter', 2)
             } else if (!this.isMobDevice) {
@@ -971,7 +1030,7 @@ export default {
             }
           } else {
             //scroll up
-            console.log('Up')
+            // console.log('Up')
             if (this.isMobDevice && window.pageYOffset < 400) {
               this.$store.commit('activeScreenSetter', 1)
             } else if (!this.isMobDevice) {
@@ -981,7 +1040,8 @@ export default {
           
         } else {
           // e.preventDefault();
-          console.log('stop')
+          // console.log('stop')
+          // console.log(e)
         }
       } else {
         if (delta > 0) {
@@ -997,20 +1057,23 @@ export default {
           // console.log('Up')
         }
       }
+      
+      return false
 
     };
 
     if (document.addEventListener) {
       if ('onwheel' in document) {
         // page.addEventListener("wheel", addOnWheel.bind(this));
-        document.onwheel = addOnWheel.bind(this)
+        // window.onwheel = addOnWheel.bind(this)
+        document.addEventListener('wheel', addOnWheel.bind(this), { passive: false })
       } else if ('onmousewheel' in document) {
-        document.addEventListener("mousewheel", addOnWheel.bind(this));
+        document.addEventListener("mousewheel", addOnWheel.bind(this))
       } else {
-        document.addEventListener("MozMousePixelScroll", addOnWheel.bind(this));
+        document.addEventListener("MozMousePixelScroll", addOnWheel.bind(this))
       }
     } else {
-        document.attachEvent("onmousewheel", addOnWheel.bind(this));
+        document.attachEvent("onmousewheel", addOnWheel.bind(this))
     }
 
     // function addOnWheel(elem, handler) {
@@ -1044,15 +1107,28 @@ export default {
     // }.bind(this);
   },
   beforeRouteLeave (to, from, next) {
-    anime({
-      targets: document.querySelector('.home'),
-      opacity: 0,
-      easing: 'linear',
-      duration: 800,
-      complete: function() {
-        next();
-      }
-    });
+    if (this.isMobDevice) {
+      anime({
+        targets: document.querySelector('.home'),
+        opacity: 0,
+        easing: 'linear',
+        duration: 500,
+        complete: function() {
+          next();
+        }
+      })
+    } else {
+      anime({
+        targets: document.querySelector('.home'),
+        opacity: 0,
+        easing: 'linear',
+        duration: 800,
+        complete: function() {
+          next();
+        }
+      })
+    }
+    
     // anime({
     //   targets: document.querySelector('.panel--left'),
     //   translateX: [0, -100],
@@ -1071,47 +1147,9 @@ export default {
     //   easing: 'linear',
     //   duration: 100,
     // });
-
-    // if (!this.isMobDevice) {
-    //   let preloader = document.querySelector('.page_change_preloader')
-    //   let random = Math.random() * 2
-    //   if (random < 1) {
-    //     preloader.classList.add('green')
-    //     preloader.classList.remove('orange')
-    //   } else {
-    //     preloader.classList.add('orange')
-    //     preloader.classList.remove('green')
-    //   }
-
-    //   anime({
-    //     targets: '.preload_bg_green',
-    //     points: [
-    //       { value: '1920,1080 0,1080 0,0 0,0 0,1080' },
-    //       // { value: '1920,1080 0,1080 0,0 0,0 677,710' },
-    //       // { value: '1920,1080 0,1080 0,0 432.1,0 677,710' },
-    //       { value: '1920,1080 0,1080 0,0 432.1,0 1920,0' },
-    //       // { value: '1920,1080 0,1080 0,0 432.1,0 1920,0' },
-    //       // { value: '1920,1080 0,1080 0,0 432.1,0 677,710' },
-    //       // { value: '1920,1080 0,1080 0,0 0,0 677,710' },
-    //       // { value: '1920,1080 0,1080 0,0 0,0 0,1080' },
-    //     ],
-    //     easing: 'easeOutQuad',
-    //     duration: 1500,
-    //     complete: function() {
-    //       next();
-    //     }
-    //   });
-    // } else {
-    //   setTimeout(() => {
-    //     next();
-    //   }, 100)
-    // }
     
   },
 
-  beforeDestroy() {
-    // document.querySelector('.home').removeEventListener('wheel', screenChangeHandler)
-  }
 }
 </script>
 

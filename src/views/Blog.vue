@@ -285,7 +285,16 @@ export default {
     // const panelBottom = document.querySelector('.panel--bottom')
     // const panelLeft = document.querySelector('.panel--left')
 
-    if (!this.isMobDevice) {
+    if (this.isMobDevice) {
+      anime({
+        targets: '.page_blog',
+        opacity: [0, 1],
+        easing: 'linear',
+        duration: 500,
+        delay: 700
+      })
+
+    } else {
       anime({
         targets: '.page_blog',
         opacity: [0, 1],
@@ -307,16 +316,6 @@ export default {
         easing: 'easeOutQuad',
         duration: 1000,
         delay: anime.stagger(500, {start: 700}),
-      })
-
-
-    } else {
-      anime({
-        targets: '.page_blog',
-        opacity: [0, 1],
-        easing: 'linear',
-        duration: 1000,
-        delay: 1000
       })
     }
     
@@ -359,39 +358,16 @@ export default {
     // })
   },
   beforeRouteLeave (to, from, next) {
-    if (!this.isMobDevice) {
+    if (this.isMobDevice) {
       anime({
         targets: '.page_blog',
         opacity: [1, 0],
         easing: 'linear',
-        duration: 1000,
+        duration: 500,
         complete: function() { 
           next();
         }
       })
-      // let preloader = document.querySelector('.page_change_preloader')
-      // let random = Math.random() * 2
-      // if (random < 1) {
-      //   preloader.classList.add('green')
-      //   preloader.classList.remove('orange')
-      // } else {
-      //   preloader.classList.add('orange')
-      //   preloader.classList.remove('green')
-      // }
-      // anime({
-      //   targets: '.preload_bg_green',
-      //   points: [
-      //     { value: '1920,1080 0,1080 0,0 0,0 0,1080' },
-      //     { value: '1920,1080 0,1080 0,0 0,0 677,710' },
-      //     { value: '1920,1080 0,1080 0,0 432.1,0 677,710' },
-      //     { value: '1920,1080 0,1080 0,0 432.1,0 1920,0' },
-      //   ],
-      //   easing: 'easeOutQuad',
-      //   duration: 2000,
-      //   complete: function() {
-      //     next();
-      //   }
-      // });
       
     } else {
       anime({
@@ -403,9 +379,6 @@ export default {
           next();
         }
       })
-      // setTimeout(() => {
-      //   next();
-      // },1500)
     }
   },
 }

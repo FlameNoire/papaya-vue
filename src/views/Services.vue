@@ -523,7 +523,7 @@ export default {
         targets: '.page_services',
         opacity: [1, 0],
         easing: 'linear',
-        duration: 1000,
+        duration: 500,
         complete: function() { 
           next();
         }

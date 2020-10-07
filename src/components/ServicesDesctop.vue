@@ -71,7 +71,7 @@
         </div>
       </transition>
       <div class="bottom">
-        <a href="#" class="buttons btn_order">
+        <a href="#" class="buttons btn_order" @click.prevent="openRequestForm">
           <i class="icon">
             <img src="@/assets/img/brief-white.svg" alt=" ">
             <img src="@/assets/img/brief.svg" alt=" ">
@@ -117,6 +117,10 @@ export default {
         hoverOnly: true,
         selector: '.hiw_item img'
       });
+    },
+    openRequestForm() {
+      this.$store.commit('showRequestFormToggler')
+      this.$router.push('/contact')
     }
   },
   watch: {
@@ -189,7 +193,7 @@ export default {
     let s1tween1 = anime({
       targets: '.s_top .bg_trgl',
       rotate: -60,
-      easing: 'easeInOutSine',
+      easing: 'linear',
       autoplay: false
     })
     let s2tween1 = anime({
@@ -197,44 +201,44 @@ export default {
       // rotate: 120,
       translateY: 100,
       scale: 1.1,
-      elasticity: 200,
-      easing: 'easeInOutSine',
+      elasticity: 1000,
+      easing: 'linear',
       autoplay: false
     })
     let s2tween2 = anime({
       targets: '.strategy .s_title',
       translateY: -80,
-      elasticity: 200,
-      easing: 'easeInOutSine',
+      elasticity: 1000,
+      easing: 'linear',
       autoplay: false
     })
     let s3tween1 = anime({
       targets: '.creative .image_inner span',
       translateX: 60,
-      elasticity: 200,
-      easing: 'easeInOutSine',
+      elasticity: 1000,
+      easing: 'linear',
       autoplay: false
     })
     let s3tween2 = anime({
       targets: '.creative .s_title',
       translateY: -100,
-      elasticity: 200,
-      easing: 'easeInOutSine',
+      elasticity: 1000,
+      easing: 'linear',
       autoplay: false
     })
     let s4tween1 = anime({
       targets: '.technology .bg_trgl',
       translateY: 100,
       scale: 1.1,
-      elasticity: 200,
-      easing: 'easeInOutSine',
+      elasticity: 1000,
+      easing: 'linear',
       autoplay: false
     })
     let s4tween2 = anime({
       targets: '.technology .s_title',
       translateY: -80,
-      elasticity: 200,
-      easing: 'easeInOutSine',
+      elasticity: 1000,
+      easing: 'linear',
       autoplay: false
     })
 
@@ -339,7 +343,7 @@ export default {
   justify-content: space-between;
 }
 .s_top {
-  padding-bottom: 8rem;
+  // padding-bottom: 8rem;
   display: block;
   .inner {
     display: flex;
@@ -357,6 +361,7 @@ export default {
       width: 53.8rem;
       z-index: 10;
       transform-origin: center center;
+      will-change: transform; 
     }
     img {
       z-index: 20;
@@ -414,6 +419,9 @@ export default {
     font-size: 1.8rem;
     line-height: 143.2%;
     color: rgba(#000, .5);
+    p {
+      height: 23rem;
+    }
   }
 }
 .strategy {
@@ -422,6 +430,7 @@ export default {
     position: relative;
     margin-bottom: -80px;
     margin-right: 15rem;
+    will-change: transform; 
     img {
       width: 5.9rem;
     }
@@ -441,6 +450,7 @@ export default {
       width: 43.6rem;
       z-index: 10;
       transform-origin: center center;
+      will-change: transform; 
     }
     img {
       z-index: 20;
@@ -466,6 +476,7 @@ export default {
     position: relative;
     margin-bottom: -100px;
     margin-left: 15rem;
+    will-change: transform; 
     img {
       width: 5.9rem;
     }
@@ -493,6 +504,7 @@ export default {
       text-transform: uppercase;
       color: #F7DD00;
       z-index: 20;
+      will-change: transform; 
     }
     img {
       position: relative;
@@ -519,6 +531,7 @@ export default {
     position: relative;
     margin-bottom: -80px;
     margin-right: 15rem;
+    will-change: transform; 
     img {
       width: 5.9rem;
     }
@@ -549,6 +562,7 @@ export default {
       right: -9rem;
       width: 77.6rem;
       z-index: 10;
+      will-change: transform; 
     }
     .bg_trgl-2 {
       position: absolute;
