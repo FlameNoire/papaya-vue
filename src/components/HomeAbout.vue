@@ -116,8 +116,6 @@ export default {
         box-shadow: -7px 7px 16px -5px rgba(40,40,40,0.5);
       }
     }
-    img {
-    }
   }
   .s_title {
     margin-bottom: 5rem;

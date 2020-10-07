@@ -224,8 +224,6 @@ export default {
     right: 1rem;
     z-index: 0;
     width: 94.5rem;
-    img {
-    }
   }
   .s_title {
     margin-top: 0;

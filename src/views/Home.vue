@@ -1226,8 +1226,6 @@ export default {
   .trgl-2 {
     left: 26.5rem;
     bottom: 20.4rem;
-    &.active {
-    }
   }
   .trgl-3 {
     right: 32.5rem;
