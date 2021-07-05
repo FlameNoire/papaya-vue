@@ -52,6 +52,12 @@ const routes = [
     meta: { breadcrumbs: true, breadcrumb: 'menu.menu4' }
   },
   {
+    path: '/brief',
+    name: 'Brief',
+    component: () => import('../views/Brief.vue'),
+    meta: { breadcrumbs: true, breadcrumb: 'brief.t3' }
+  },
+  {
     path: '/blog',
     name: 'Blog',
     component: () => import('../views/Blog.vue'),

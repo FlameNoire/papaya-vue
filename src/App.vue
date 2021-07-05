@@ -249,6 +249,29 @@ img {
   }
 }
 
+.checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    &:checked ~ label {
+      border-color: #98BC24;
+      background-color: #98BC24;
+    }
+    & ~ label {
+      position: relative;
+      margin-right: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid rgba(#000, 0.3);
+      background: #fff url("assets/img/check.svg") no-repeat center;
+    }
+  }
+}
+
 #app {
   width: 100%;
   overflow: hidden;
@@ -762,6 +785,18 @@ img {
     li {
       margin-bottom: 2rem;
       padding-left: 4.3rem;
+    }
+  }
+  .checkbox {
+    input {
+      & ~ label {
+        position: relative;
+        margin-right: 1.5rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        border: 1px solid rgba(#000, 0.3);
+        background: #fff url("assets/img/check.svg") no-repeat center;
+      }
     }
   }
 }

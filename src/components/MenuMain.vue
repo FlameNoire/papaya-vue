@@ -54,12 +54,12 @@
             </div>
           </li>
           <li class="skype">
-            <a href="skype:papaya_web?call" class="icon ic-skype">
-              <img src="@/assets/img/skype.svg" alt=" ">
-              <img src="@/assets/img/skype-white.svg" alt=" ">
+            <a href="https://t.me/serg_papaya" class="icon ic-skype">
+              <img src="@/assets/img/tg.svg" alt=" ">
+              <img src="@/assets/img/tg-white.svg" alt=" ">
             </a>
             <div class="info-hover">
-              <a href="skype:papaya_web?call">papaya_web</a>
+              <a href="https://t.me/serg_papaya">Telegram</a>
             </div>
           </li>
           <li  class="email h-sm">
@@ -81,12 +81,12 @@
             </div>
           </li>
           <li class="brief h-sm">
-            <a href="#" class="icon ic-brief">
+            <router-link @click.native="menuToggle" class="icon ic-brief" to="/brief">
               <img src="@/assets/img/brief.svg" alt=" ">
               <img src="@/assets/img/brief-white.svg" alt=" ">
-            </a>
+            </router-link>
             <div class="info-hover">
-              <a href="#">{{ $t('pannels.t8') }}</a>
+              <router-link @click.native="menuToggle" to="/brief">{{ $t('pannels.t8') }}</router-link>
             </div>
           </li>
         </ul>
@@ -95,10 +95,13 @@
       <div class="social">
         <ul>
           <li>
-            <a href="https://www.facebook.com/" class="icon ic-fb" target="_blank" @click="menuToggle"><img src="@/assets/img/facebook.svg" alt=" "></a>
+            <a href="https://www.facebook.com/groups/1594771644150298/" class="icon ic-fb" target="_blank" @click="menuToggle"><img src="@/assets/img/facebook.svg" alt=" "></a>
           </li>
           <li>
-            <a href="https://www.instagram.com/" class="icon ic-inst" target="_blank" @click="menuToggle"><img src="@/assets/img/instagram.svg" alt=" "></a>
+            <a href="https://www.instagram.com/papaya_web_agency/" class="icon ic-inst" target="_blank" @click="menuToggle"><img src="@/assets/img/instagram.svg" alt=" "></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/web_papaya?lang=en" class="icon ic-tw" target="_blank" @click="menuToggle"><img src="@/assets/img/twitter.svg" alt=" "></a>
           </li>
         </ul>
       </div>

@@ -4,11 +4,16 @@
       <MsgResponse v-show="showResponsePopup" @close-popup="msgResponsePopup = false"></MsgResponse>
     </transition>
  
-    <div class="s_content">
+    <div class="s_content" :class="{'modal' : showRequestForm}">
+      
       <h2 class="s_title">{{$t('text1')}}</h2>
       <div class="our_contacts">
         <transition name="fade">
           <div v-if="showRequestForm" class="make_request">
+            <div v-if="isMobDevice" class="bg_trgls2">
+              <div class="trgl-1"><img src="@/assets/img/trgl-19.svg" alt=" "></div>
+              <div class="trgl-2"><img src="@/assets/img/trgl-20.svg" alt=" "></div>
+            </div>
             <a v-if="isMobDevice" href="#" class="close"><img src="@/assets/img/close.svg" alt=" " width="18" @click.prevent="closeRequest"></a>
             <div class="make_request_wrap">
               <h2 v-if="isMobDevice" class="s_title">{{$t('text1')}}</h2>
@@ -63,13 +68,14 @@
             <a href="tel:+380630305858"><img src="@/assets/img/phone.svg" alt=" ">063 030-58-58</a>
           </p>
           <p class="contacts_item skype">
-            <a href="tel:papaya_web"><img src="@/assets/img/skype.svg" alt=" ">papaya_web</a>
+            <a href="https://t.me/serg_papaya" target="_blank"><img src="@/assets/img/tg.svg" alt=" ">Telegram</a>
           </p>
           <p class="contacts_item mail">
             <a href="mailto:info@papaya.net.ua"><img src="@/assets/img/mail.svg" alt=" ">info@papaya.net.ua </a>
           </p>
           <p class="contacts_item logo">
-            <img src="@/assets/img/UkraineKyiv.svg" alt=" ">
+            <img src="@/assets/img/ukraine.svg" alt=" ">
+            <span>Ukraine</span><span>Kyiv</span>
           </p>
           <a href="#" class="buttons btn_request" @click.prevent="openRequest">
             <i class="icon">
@@ -157,23 +163,31 @@ export default {
       this.$v.$touch()
       if(!this.$v.$invalid) {
 
+        let formData = new FormData()
+        
+        formData.append('name', this.name)
+        formData.append('phone', this.phone)
+        formData.append('mail', this.mail)
+        formData.append('message', this.message)
+
         setTimeout(() => {
           this.msgResponsePopup = true
           this.$store.commit('showRequestFormToggler')
         }, 300)
         
         /* axios
-          .post(url + '/sendContactForm', {
-              name: this.name,
-              email: this.email,
-              phone: this.phone,
-              message: this.message,
-          })
+          .post(url + '/sendRequestForm', 
+              formData,
+              {
+                  headers: {
+                      'Content-Type': 'multipart/form-data'
+                  }
+              })
           .then(response => {
               const {data:{status}} = response;
               if (status === 'ok') {
                   this.msgResponsePopup = true
-                  this.requestForm = false
+                  this.$store.commit('showRequestFormToggler')
               }else alert('An unknown error has occurred, please try again.') ;
           })
           .catch(error => {
@@ -218,6 +232,35 @@ export default {
   align-items: center;
   justify-content: space-between;
   overflow: visible;
+  .bg_trgls2 {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    .trgl-1 {
+      position: absolute;
+      top: 124px;
+      right: -30px;
+      left: auto;
+      bottom: auto;
+      img {
+        width: 63px;
+        height: 66px;
+      }
+    }
+    .trgl-2 {
+      position: absolute;
+      bottom: auto;
+      left: -20px;
+      right: auto;
+      top: 70vh;
+      img {
+        width: 55px;
+        height: 68px;
+      }
+    }
+  }
   .bg_image {
     position: absolute;
     top: -20rem;
@@ -234,10 +277,14 @@ export default {
     margin-top: 3.4rem;
     padding-left: 3rem;
     padding-right: 3.6rem;
+    transition: background-color .3s;
     .icon {
       margin-right: 2rem;
       width: 21px;
       height: 21px;
+    }
+    span {
+      transition: color .3s;
     }
     &:hover, &:focus {
       background: #F15000;
@@ -271,8 +318,16 @@ export default {
     font-size: 2.5rem;
     line-height: 3.6rem;
     &.logo {
+      display: flex;
       img {
-        height: 3.6rem;
+        width: 17px;
+        margin-right: 18px;
+      }
+      span {
+        margin-right: 1rem;
+      }
+      span + span {
+        color: #888888;
       }
     }
     a {
@@ -396,6 +451,7 @@ export default {
       padding-left: 40px;
       padding-right: 40px;
       height: 100vh;
+      z-index: 10;
       .bg_image {
         display: none;
       }
@@ -411,8 +467,8 @@ export default {
       .contacts_item.logo {
         img {
           top: 0;
-          width: auto;
-          height: 42px;
+          width: 22px;
+          margin-right: 20px;
         }
       }
       .btn_request {
@@ -434,7 +490,11 @@ export default {
         }
       }
       .s_content {
+        position: relative;
         width: 375px;
+        &.modal {
+          z-index: 130;
+        }
       }
       .our_contacts {
         position: relative;
@@ -455,7 +515,7 @@ export default {
         top: 0;
         left: 0;
         bottom: auto;
-        background-color: transparent;
+        // background-color: transparent;
         width: 100%;
         height: 100%;
         pointer-events: none;
@@ -516,6 +576,7 @@ export default {
     position: static!important;
     padding-left: 40px;
     padding-right: 40px;
+    z-index: 10;
     .bg_image {
       display: none;
     }
@@ -545,8 +606,8 @@ export default {
     .contacts_item.logo {
       img {
         top: 0;
-        width: auto;
-        height: 2.9rem;
+        width: 1.5rem;
+        margin-right: 20px;
       }
     }
     .btn_request {
@@ -570,7 +631,11 @@ export default {
       }
     }
     .s_content {
+      position: relative;
       width: 25rem;
+      &.modal {
+        z-index: 130;
+      }
     }
     .our_contacts {
       position: relative;
@@ -591,7 +656,7 @@ export default {
       top: 0;
       left: 0;
       bottom: auto;
-      background-color: transparent;
+      // background-color: transparent;
       width: 100%;
       height: 100%;
       pointer-events: none;
@@ -662,7 +727,7 @@ export default {
     height: 95vh;
     .s_content {
       position: relative;
-      z-index: 10;
+      z-index: 100;
     }
     .bg_image {
       display: block;

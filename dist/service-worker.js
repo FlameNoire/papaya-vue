@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.80fbaec2f389c487134aad4705524a3c.js"
+  "/precache-manifest.bf374e419edc4f1a4bc79ec0d6331628.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "papaya-vue"});

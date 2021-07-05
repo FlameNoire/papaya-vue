@@ -132,6 +132,57 @@ export default {
       }
     },
 
+    addOnWheel: function(e) {
+      var delta = e.deltaY || e.detail || e.wheelDelta;
+          // console.log('delta');
+          // console.log(e);
+          
+      if (e.deltaY && e.target) {
+        if (!(e.target.classList.contains("portfolio_img"))) {
+          // e.preventDefault()
+          
+          if (delta > 0) {
+            //scroll down
+            // console.log('Down')
+            if (this.isMobDevice && window.pageYOffset > 150) {
+              this.$store.commit('activeScreenSetter', 2)
+            } else if (!this.isMobDevice) {
+              this.scrollBottom()
+            }
+          } else {
+            //scroll up
+            // console.log('Up')
+            if (this.isMobDevice && window.pageYOffset < 400) {
+              this.$store.commit('activeScreenSetter', 1)
+            } else if (!this.isMobDevice) {
+              this.scrollTop()
+            }
+          }
+          
+        } else {
+          // e.preventDefault();
+          // console.log('stop')
+          // console.log(e)
+        }
+      } else {
+        if (delta > 0) {
+          //scroll down
+          this.scrollBottom()
+          // console.log('Down')
+        } else {
+          //scroll up
+          this.scrollTop()
+          if (this.isMobDevice && window.pageYOffset < 300) {
+            this.$store.commit('activeScreenSetter', 1)
+          }
+          // console.log('Up')
+        }
+      }
+      
+      return false
+
+    },
+
     enterFirstScreen: function (el, done) {
       // if (!this.isMobDevice) {
       //   this.$refs.welcom.$forceUpdate()
@@ -648,33 +699,60 @@ export default {
       // if (!this.isMobDevice) {
       //   this.$refs.contact.$forceUpdate()
       // }
-      // const contact_items = document.querySelectorAll('.our_contacts .contacts_item')
-      // const title = document.querySelector('.s_contact_us .s_title')
-      // const btn = document.querySelector('.s_contact_us .btn_more')
+      const contact_items = document.querySelectorAll('.our_contacts .contacts_item')
+      const request_items = document.querySelectorAll('.make_request')
+      const title = document.querySelector('.s_contact_us .s_title')
+      const btn = document.querySelector('.s_contact_us .btn_request')
       const smoke = document.querySelector('.s_contact_us .bg_image')
-      const form = document.querySelector('.s_contact_us .s_content')
+      // const form = document.querySelector('.s_contact_us .s_content')
       const trgl_4 = document.querySelector('.trgl-4')
       const papaya = document.querySelector('.s_fours .bg_image')
       
-      anime({
-        targets: form,
-        translateX: ['-15vw', 0],
-        opacity: [0, 1],
-        easing: 'easeOutQuad',
-        duration: 700,
-        delay: 500,
-        complete: function() {
-          done()
-        }
-      })
       // anime({
-      //   targets: [title, contact_items, btn],
-      //   translateX: ['-10vw', 0],
+      //   targets: form,
+      //   translateX: ['-15vw', 0],
       //   opacity: [0, 1],
       //   easing: 'easeOutQuad',
       //   duration: 700,
-      //   delay: anime.stagger(100, {start: 300}),
+      //   delay: 500,
+      //   complete: function() {
+      //     done()
+      //   }
       // })
+
+      // setTimeout(function() {
+      //   const title = document.querySelector('.s_contact_us .s_title')
+      //   const contact_items = document.querySelectorAll('.our_contacts .contacts_item')
+      //   const btn = document.querySelector('.s_contact_us .btn_more')
+      //   console.log(title)
+      //   console.log(contact_items)
+      //   console.log(btn)
+      //   anime({
+      //     targets: [title, contact_items, btn],
+      //     translateX: ['-10vw', 0],
+      //     opacity: [0, 1],
+      //     easing: 'easeOutQuad',
+      //     duration: 700,
+      //     delay: anime.stagger(100, {start: 300}),
+      //   })
+      // }, 200)
+      anime({
+        targets: [title, contact_items, btn],
+        translateX: ['-10vw', 0],
+        opacity: [0, 1],
+        easing: 'easeOutQuad',
+        duration: 700,
+        delay: anime.stagger(100, {start: 300}),
+      })
+      anime({
+        targets: [request_items],
+        // translateX: ['-10vw', 0],
+        opacity: [0, 1],
+        easing: 'easeOutQuad',
+        duration: 500,
+        delay: 1200,
+      })
+
       if (this.scrollHash[this.scrollHash.length - 1] == 4) {
         anime({
           targets: smoke,
@@ -725,13 +803,27 @@ export default {
       })
     },
     leaveFifthScreen: function (el, done) {
-      // const contact_items = document.querySelectorAll('.our_contacts .contacts_item')
-      // const title = document.querySelector('.s_contact_us .s_title')
-      // const btn = document.querySelector('.s_contact_us .btn_more')
+      const contact_items = document.querySelectorAll('.our_contacts .contacts_item')
+      const title = document.querySelector('.s_contact_us .s_title')
+      const btn = document.querySelector('.s_contact_us .btn_request')
       const smoke = document.querySelector('.s_contact_us .bg_image')
-      const form = document.querySelector('.s_contact_us .s_content')
+      // const form = document.querySelector('.s_contact_us .s_content')
       const papaya = document.querySelector('.s_fours .bg_image')
-      
+
+      if(this.$store.state.showRequestForm) {
+        anime({
+          targets: document.querySelector('.make_request'),
+          translateX: [0, '-10vw'],
+          // opacity: [1, 0],
+          easing: 'easeOutQuad',
+          duration: 700,
+          complete: function() {
+            done()
+          }
+        })
+        this.$store.commit('showRequestFormToggler')
+      }
+
       if (this.activeScreen === 4) {
         anime({
           targets: smoke,
@@ -759,27 +851,27 @@ export default {
           // delay: 1000,
         })
       }
-      anime({
-        targets: form,
-        translateX: [0, '-15vw'],
-        opacity: [1, 0],
-        easing: 'easeOutQuad',
-        duration: 700,
-        complete: function() {
-          done()
-        }
-      })
       // anime({
-      //   targets: [title, contact_items, btn],
-      //   translateX: [0, '-10vw'],
+      //   targets: form,
+      //   translateX: [0, '-15vw'],
       //   opacity: [1, 0],
       //   easing: 'easeOutQuad',
       //   duration: 700,
-      //   delay: anime.stagger(100),
       //   complete: function() {
       //     done()
       //   }
       // })
+      anime({
+        targets: [title, contact_items, btn],
+        translateX: [0, '-10vw'],
+        opacity: [1, 0],
+        easing: 'easeOutQuad',
+        duration: 700,
+        delay: anime.stagger(100),
+        complete: function() {
+          done()
+        }
+      })
     },
 
   },
@@ -801,27 +893,6 @@ export default {
       const trgl_4 = document.querySelector('.trgl-4')
 
       if (!this.isMobDevice) {     
-        // anime({
-        //   targets: '.preload_bg_green',
-        //   opacity: [1, 0],
-        //   easing: 'linear',
-        //   duration: 500,
-        //   delay: 500,
-        //   complete: function() {
-        //     anime({
-        //       targets: '.preload_bg_green',
-        //       points: [
-        //         { value: '1920,1080 0,1080 0,0 432.1,0 1920,0' },
-        //         { value: '1920,1080 0,1080 0,0 0,0 0,1080' },
-        //       ],
-        //       easing: 'easeOutQuad',
-        //       duration: 0,
-        //       complete: function() {
-        //         document.querySelector('.preload_bg_green').style.opacity = 1
-        //       }
-        //     });
-        //   }
-        // })
         
         anime({
           targets: '.trgl-1',
@@ -1011,70 +1082,72 @@ export default {
 
     const page = document.querySelector('.home')
 
-    const addOnWheel = function(e) {
-      var delta = e.deltaY || e.detail || e.wheelDelta;
-          // console.log('delta');
-          // console.log(e);
+    // const addOnWheel = function(e) {
+    //   var delta = e.deltaY || e.detail || e.wheelDelta;
+    //       // console.log('delta');
+    //       // console.log(e);
           
-      if (e.deltaY && e.target) {
-        if (!(e.target.classList.contains("portfolio_img"))) {
-          // e.preventDefault()
+    //   if (e.deltaY && e.target) {
+    //     if (!(e.target.classList.contains("portfolio_img"))) {
+    //       // e.preventDefault()
           
-          if (delta > 0) {
-            //scroll down
-            // console.log('Down')
-            if (this.isMobDevice && window.pageYOffset > 150) {
-              this.$store.commit('activeScreenSetter', 2)
-            } else if (!this.isMobDevice) {
-              this.scrollBottom()
-            }
-          } else {
-            //scroll up
-            // console.log('Up')
-            if (this.isMobDevice && window.pageYOffset < 400) {
-              this.$store.commit('activeScreenSetter', 1)
-            } else if (!this.isMobDevice) {
-              this.scrollTop()
-            }
-          }
+    //       if (delta > 0) {
+    //         //scroll down
+    //         // console.log('Down')
+    //         if (this.isMobDevice && window.pageYOffset > 150) {
+    //           this.$store.commit('activeScreenSetter', 2)
+    //         } else if (!this.isMobDevice) {
+    //           this.scrollBottom()
+    //         }
+    //       } else {
+    //         //scroll up
+    //         // console.log('Up')
+    //         if (this.isMobDevice && window.pageYOffset < 400) {
+    //           this.$store.commit('activeScreenSetter', 1)
+    //         } else if (!this.isMobDevice) {
+    //           this.scrollTop()
+    //         }
+    //       }
           
-        } else {
-          // e.preventDefault();
-          // console.log('stop')
-          // console.log(e)
-        }
-      } else {
-        if (delta > 0) {
-          //scroll down
-          this.scrollBottom()
-          // console.log('Down')
-        } else {
-          //scroll up
-          this.scrollTop()
-          if (this.isMobDevice && window.pageYOffset < 300) {
-            this.$store.commit('activeScreenSetter', 1)
-          }
-          // console.log('Up')
-        }
-      }
+    //     } else {
+    //       // e.preventDefault();
+    //       // console.log('stop')
+    //       // console.log(e)
+    //     }
+    //   } else {
+    //     if (delta > 0) {
+    //       //scroll down
+    //       this.scrollBottom()
+    //       // console.log('Down')
+    //     } else {
+    //       //scroll up
+    //       this.scrollTop()
+    //       if (this.isMobDevice && window.pageYOffset < 300) {
+    //         this.$store.commit('activeScreenSetter', 1)
+    //       }
+    //       // console.log('Up')
+    //     }
+    //   }
       
-      return false
+    //   return false
 
-    };
+    // };
 
-    if (document.addEventListener) {
-      if ('onwheel' in document) {
-        // page.addEventListener("wheel", addOnWheel.bind(this));
-        // window.onwheel = addOnWheel.bind(this)
-        document.addEventListener('wheel', addOnWheel.bind(this), { passive: false })
-      } else if ('onmousewheel' in document) {
-        document.addEventListener("mousewheel", addOnWheel.bind(this))
-      } else {
-        document.addEventListener("MozMousePixelScroll", addOnWheel.bind(this))
-      }
-    } else {
-        document.attachEvent("onmousewheel", addOnWheel.bind(this))
-    }
+    // if (document.addEventListener) {
+    //   if ('onwheel' in document) {
+    //     // page.addEventListener("wheel", addOnWheel.bind(this));
+    //     // window.onwheel = addOnWheel.bind(this)
+    //     document.addEventListener('wheel', addOnWheel.bind(this), { passive: false })
+    //   } else if ('onmousewheel' in document) {
+    //     document.addEventListener("mousewheel", addOnWheel.bind(this))
+    //   } else {
+    //     document.addEventListener("MozMousePixelScroll", addOnWheel.bind(this))
+    //   }
+    // } else {
+    //     document.attachEvent("onmousewheel", addOnWheel.bind(this))
+    // }
+
+    document.addEventListener('wheel', this.addOnWheel, { passive: false })
 
     // function addOnWheel(elem, handler) {
     //   if (elem.addEventListener) {
@@ -1118,6 +1191,7 @@ export default {
         }
       })
     } else {
+      document.removeEventListener('wheel', this.addOnWheel)
       anime({
         targets: document.querySelector('.home'),
         opacity: 0,

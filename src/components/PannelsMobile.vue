@@ -14,9 +14,9 @@
             </div> -->
           </li>
           <li class="skype">
-            <a href="skype:papaya_web?call" class="icon ic-skype">
-              <img src="@/assets/img/skype.svg" alt=" ">
-              <img src="@/assets/img/skype-white.svg" alt=" ">
+            <a href="https://t.me/serg_papaya" class="icon ic-skype">
+              <img src="@/assets/img/tg.svg" alt=" ">
+              <img src="@/assets/img/tg-white.svg" alt=" ">
             </a>
             <!-- <div class="info-hover">
               <a href="skype:papaya_web?call">papaya_web</a>
@@ -159,7 +159,7 @@ export default {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 50;
+    z-index: 120;
     background-color: #fff;
   }
   .panel--top {

@@ -3,11 +3,15 @@
     <transition name="fade">
       <MsgResponse v-show="showResponsePopup" @close-popup="msgResponsePopup = false"></MsgResponse>
     </transition>
-    <div class="s_content">
+    <div class="s_content" :class="{'modal' : showRequestForm}">
       <h2 class="s_title">{{$t('text1')}}</h2>
       <div class="our_contacts">
         <transition name="fade">
           <div v-if="showRequestForm" class="make_request">
+            <div v-if="isMobDevice" class="bg_trgls">
+              <div class="trgl-1"><img src="@/assets/img/trgl-19.svg" alt=" "></div>
+              <div class="trgl-2"><img src="@/assets/img/trgl-20.svg" alt=" "></div>
+            </div>
             <a v-if="isMobDevice" href="#" class="close"><img src="@/assets/img/close.svg" alt=" " width="18" @click.prevent="closeRequest"></a>
             <div class="make_request_wrap">
               <h2 v-if="isMobDevice" class="s_title">{{$t('text1')}}</h2>
@@ -62,13 +66,14 @@
             <a href="tel:+380630305858"><img src="@/assets/img/phone.svg" alt=" ">063 030-58-58</a>
           </p>
           <p class="contacts_item skype">
-            <a href="tel:papaya_web"><img src="@/assets/img/skype.svg" alt=" ">papaya_web</a>
+            <a href="https://t.me/serg_papaya" target="_blank"><img src="@/assets/img/tg.svg" alt=" ">Telegram</a>
           </p>
           <p class="contacts_item mail">
             <a href="mailto:info@papaya.net.ua"><img src="@/assets/img/mail.svg" alt=" ">info@papaya.net.ua </a>
           </p>
           <p class="contacts_item logo">
-            <img src="@/assets/img/UkraineKyiv.svg" alt=" ">
+            <img src="@/assets/img/ukraine.svg" alt=" ">
+            <span>Ukraine</span><span>Kyiv</span>
           </p>
           <a href="#" class="buttons btn_request" @click.prevent="openRequest">
             <i class="icon">
@@ -154,23 +159,31 @@ export default {
       this.$v.$touch()
       if(!this.$v.$invalid) {
 
+        let formData = new FormData()
+        
+        formData.append('name', this.name)
+        formData.append('phone', this.phone)
+        formData.append('mail', this.mail)
+        formData.append('message', this.message)
+
         setTimeout(() => {
           this.msgResponsePopup = true
           this.$store.commit('showRequestFormToggler')
         }, 300)
         
         /* axios
-          .post(url + '/sendContactForm', {
-              name: this.name,
-              email: this.email,
-              phone: this.phone,
-              message: this.message,
-          })
+          .post(url + '/sendRequestForm', 
+              formData,
+              {
+                  headers: {
+                      'Content-Type': 'multipart/form-data'
+                  }
+              })
           .then(response => {
               const {data:{status}} = response;
               if (status === 'ok') {
                   this.msgResponsePopup = true
-                  this.requestForm = false
+                  this.$store.commit('showRequestFormToggler')
               }else alert('An unknown error has occurred, please try again.') ;
           })
           .catch(error => {
@@ -248,7 +261,30 @@ export default {
     right: 1rem;
     z-index: 0;
     width: 94.5rem;
+  }
+  .bg_trgls {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+  .trgl-1 {
+    position: absolute;
+    top: 124px;
+    right: -30px;
     img {
+      width: 63px;
+      height: 66px;
+    }
+  }
+  .trgl-2 {
+    position: absolute;
+    top: 70vh;
+    left: -20px;
+    img {
+      width: 55px;
+      height: 68px;
     }
   }
   .s_title {
@@ -273,7 +309,7 @@ export default {
   }
   .btn_request--send {
     margin-top: 6.3rem;
-    width: 17rem;
+    // width: 17rem;
     .icon {
       margin-right: 2.5rem;
       width: 21px;
@@ -297,8 +333,16 @@ export default {
     font-size: 2.5rem;
     line-height: 3.6rem;
     &.logo {
+      display: flex;
       img {
-        height: 3.6rem;
+        width: 17px;
+        margin-right: 18px;
+      }
+      span {
+        margin-right: 1rem;
+      }
+      span + span {
+        color: #888888;
       }
     }
     a {
@@ -438,8 +482,8 @@ export default {
       .contacts_item.logo {
         img {
           top: 0;
-          width: auto;
-          height: 42px;
+          width: 22px;
+          margin-right: 20px;
         }
       }
       .btn_request {
@@ -462,6 +506,9 @@ export default {
       }
       .s_content {
         width: 375px;
+        &.modal {
+          z-index: 130;
+        }
       }
       .our_contacts {
         position: relative;
@@ -567,14 +614,14 @@ export default {
     }
     .contacts_item img {
       position: relative;
-      top: 2px;
+      top: 1px;
       width: 1.5rem;
     }
     .contacts_item.logo {
       img {
         top: 0;
-        width: auto;
-        height: 2.9rem;
+        width: 1.5rem;
+        margin-right: 20px;
       }
     }
     .btn_request {
@@ -599,6 +646,9 @@ export default {
     }
     .s_content {
       width: 25rem;
+      &.modal {
+        z-index: 130;
+      }
     }
     .our_contacts {
       position: relative;

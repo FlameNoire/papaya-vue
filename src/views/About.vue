@@ -44,7 +44,7 @@ This was made possible through the harmonious introduction of innovative digital
       <h2 class="s_title">{{ $t('about.t8') }}</h2>
       <div v-dragscroll @dragscrollmove="dragscrollMoveHandler($event)" @dragscrollend="dragscrollEndHandler($event)" class="office_gallery">
         
-          <img v-for="item in officeImagesList" :key="item" :src="item" alt=" ">
+          <img v-for="(item, index) in officeImagesList" :key="index" :src="item" alt=" ">
           <!-- <img src="@/assets/img/office-2.png" alt=" ">
           <img src="@/assets/img/office-3.png" alt=" ">
           <img src="@/assets/img/office-4.png" alt=" ">
@@ -770,6 +770,7 @@ export default {
       font-size: 0;
       top: 50%;
       margin-top: -7rem;
+      cursor: pointer;
     }
     .agile__nav-button--prev {
       left: -6rem;

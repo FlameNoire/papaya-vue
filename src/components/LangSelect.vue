@@ -62,7 +62,7 @@ export default {
     position: absolute;
     right: 100%;
     top: 0;
-    padding-left: 1.5rem;
+    padding-left: 2.5rem;
     display: flex;
   }
   .selected {

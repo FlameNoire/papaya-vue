@@ -25,20 +25,20 @@
         <span class="sm">And other web solutions for your business</span></h2> -->
       </div>
       <div class="buttons_wrap">
-        <a href="#" class="buttons btn_ask" @click="openRequestForm">
+        <a href="#" class="buttons btn_ask" @click.prevent="openRequestForm">
           <i class="icon">
             <img src="@/assets/img/chat-white.svg" alt=" ">
             <img src="@/assets/img/chat.svg" alt=" ">
           </i>
           <span>{{ $t('buttons.btn1') }}</span>
         </a>
-        <a href="#" class="buttons btn_brief">
+        <router-link class="buttons btn_brief" to="/brief">
           <i class="icon">
             <img src="@/assets/img/brief-white.svg" alt=" ">
             <img src="@/assets/img/brief.svg" alt=" ">
           </i>
           <span>{{ $t('buttons.btn2') }}</span>
-        </a>
+        </router-link>
       </div>
     </div>
     <a v-if="isMobDevice" @click.prevent href="#" class="btn_down"><img src="@/assets/img/arrow_down.svg" alt=" "></a>

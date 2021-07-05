@@ -18,12 +18,12 @@
             </div>
           </li>
           <li class="skype">
-            <a href="skype:papaya_web?call" class="icon ic-skype">
-              <img src="@/assets/img/skype.svg" alt=" ">
-              <img src="@/assets/img/skype-white.svg" alt=" ">
+            <a href="https://t.me/serg_papaya" target="_blank" class="icon ic-skype">
+              <img src="@/assets/img/tg.svg" alt=" ">
+              <img src="@/assets/img/tg-white.svg" alt=" ">
             </a>
             <div class="info-hover">
-              <a href="skype:papaya_web?call">papaya_web</a>
+              <a href="https://t.me/serg_papaya" target="_blank">Telegram</a>
             </div>
           </li>
           <li  class="email h-sm">
@@ -45,12 +45,12 @@
             </div>
           </li>
           <li class="brief h-sm">
-            <a href="#" class="icon ic-brief">
+            <router-link class="icon ic-brief" to="/brief">
               <img src="@/assets/img/brief.svg" alt=" ">
               <img src="@/assets/img/brief-white.svg" alt=" ">
-            </a>
+            </router-link>
             <div class="info-hover">
-              <a href="#">{{ $t('pannels.t8') }}</a>
+              <router-link to="/brief">{{ $t('pannels.t8') }}</router-link>
             </div>
           </li>
         </ul>
@@ -70,10 +70,13 @@
       <div class="social">
         <ul>
           <li>
-            <a href="https://www.facebook.com/" class="icon ic-fb" target="_blank" @click="menuToggle"><img src="@/assets/img/facebook.svg" alt=" "></a>
+            <a href="https://www.facebook.com/groups/1594771644150298/" class="icon ic-fb" target="_blank"><img src="@/assets/img/facebook.svg" alt=" "></a>
           </li>
           <li>
-            <a href="https://www.instagram.com/" class="icon ic-inst" target="_blank" @click="menuToggle"><img src="@/assets/img/instagram.svg" alt=" "></a>
+            <a href="https://www.instagram.com/papaya_web_agency/" class="icon ic-inst" target="_blank"><img src="@/assets/img/instagram.svg" alt=" "></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/web_papaya?lang=en" class="icon ic-tw" target="_blank"><img src="@/assets/img/twitter.svg" alt=" "></a>
           </li>
         </ul>
       </div>
@@ -139,6 +142,9 @@ export default {
   methods: {
     menuToggle() {
       this.$store.commit('menuToggle');
+    },
+    menuClose() {
+      this.$store.commit('menuClose');
     },
     scrollDown() {
       this.$store.commit('scrollHashPush', this.activeScreen)
@@ -223,6 +229,13 @@ export default {
         this.$store.commit('showRequestFormToggler')
         this.$router.push('/contact')
       }
+      anime({
+        targets: '.make_request',
+        opacity: [0, 1],
+        easing: 'linear',
+        duration: 500,
+        delay: 500,
+      })
     }
   }
 }
@@ -386,6 +399,10 @@ export default {
       left: 0;
       width: 100%;
       z-index: 50;
+      pointer-events: none;
+      .social, .lang_select, .down_btn {
+        pointer-events: auto;
+      }
     }
     &--left {
       top: 0;
